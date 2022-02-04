@@ -24,7 +24,7 @@ class _HomeState extends State<Home> {
       top: false,
         child: Center(
           child: Scaffold(
-            Icon(icon:Icons.camera)
+            // Icon(icon:Icons.camera)
           ),
         ),
     );
