@@ -1,6 +1,7 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'home.dart';
+import 'profile.dart';
 
 void main() => runApp(MaterialApp(
     home: BottomNavBar()
@@ -12,10 +13,14 @@ class BottomNavBar extends StatefulWidget {
 }
 
 class _BottomNavBarState extends State<BottomNavBar> {
-  int index = 2;
+  final navigationKey = GlobalKey<CurvedNavigationBarState>();
+  int index = 0;
   final screens = [
     Home(),
-
+    Profile(),
+    Profile(),
+    Profile(),
+    Home()
   ];
 
   @override
@@ -28,24 +33,27 @@ class _BottomNavBarState extends State<BottomNavBar> {
       Icon(Icons.person_sharp, size:30),
     ];
     return SafeArea(
-      top: false,
-      child: ClipRect(
-        child: Scaffold(
-            extendBody: true,
-            backgroundColor: Colors.blue[200],
-            appBar: AppBar(
-                elevation: 0
-            ),
-            body: screens[index],
-            bottomNavigationBar: CurvedNavigationBar(
-              backgroundColor: Colors.transparent,
-              height: 60,
-              index: index,
-              items: items,
-              onTap: (index) => setState(() => this.index = index),
-            )
+        top: false,
+        child: ClipRect(
+          child: Scaffold(
+              backgroundColor: Colors.redAccent,
+              extendBody: true,
+              appBar: AppBar(
+                  elevation: 0
+              ),
+              body: screens[index],
+              bottomNavigationBar: CurvedNavigationBar(
+                key: navigationKey,
+                backgroundColor: Colors.transparent,
+                height: 60,
+                animationCurve: Curves.easeInOut,
+                animationDuration:Duration(milliseconds: 300),
+                index: index,
+                items: items,
+                onTap: (index) => setState(() => this.index = index),
+              )
+          ),
         ),
-      ),
     );
   }
 }
