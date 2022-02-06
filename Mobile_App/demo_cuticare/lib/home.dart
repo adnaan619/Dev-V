@@ -1,3 +1,4 @@
+import 'package:demo_cuticare/profile.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MaterialApp(
@@ -24,9 +25,24 @@ class _HomeState extends State<Home> {
       top: false,
         child: Center(
           child: Scaffold(
-            // Icon(icon:Icons.camera)
+              body: SizedBox(
+                height: 170,
+                width: 100,
+                child: InkWell(
+                  child: Container(
+                    color:Colors.yellowAccent,
+                    child: Text("Click Here")
+                  ),
+                  onTap: (){
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context)=> Profile())
+                    );
+                  }
+                ),
+              )
+            ),
           ),
-        ),
     );
   }
 }

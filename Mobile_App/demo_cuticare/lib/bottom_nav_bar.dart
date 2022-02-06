@@ -1,4 +1,4 @@
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'home.dart';
 import 'profile.dart';
@@ -8,52 +8,78 @@ void main() => runApp(MaterialApp(
 ));
 
 class BottomNavBar extends StatefulWidget {
+const BottomNavBar({Key? key}) : super(key: key);
+
   @override
   State<BottomNavBar> createState() => _BottomNavBarState();
 }
 
 class _BottomNavBarState extends State<BottomNavBar> {
-  final navigationKey = GlobalKey<CurvedNavigationBarState>();
-  int index = 0;
-  final screens = [
-    Home(),
-    Profile(),
-    Profile(),
-    Profile(),
-    Home()
-  ];
+@override
+Widget build(BuildContext context) {
+  return CupertinoTabScaffold(
+    tabBar: CupertinoTabBar(
 
-  @override
-  Widget build(BuildContext context) {
-    final items = <Widget>[
-      Icon(Icons.home, size:30),
-      Icon(Icons.group_rounded, size:30),
-      Icon(Icons.location_on, size:30),
-      Icon(Icons.assignment, size:30),
-      Icon(Icons.person_sharp, size:30),
-    ];
-    return SafeArea(
-        top: false,
-        child: ClipRect(
-          child: Scaffold(
-              backgroundColor: Colors.redAccent,
-              extendBody: true,
-              appBar: AppBar(
-                  elevation: 0
-              ),
-              body: screens[index],
-              bottomNavigationBar: CurvedNavigationBar(
-                key: navigationKey,
-                backgroundColor: Colors.transparent,
-                height: 60,
-                animationCurve: Curves.easeInOut,
-                animationDuration:Duration(milliseconds: 300),
-                index: index,
-                items: items,
-                onTap: (index) => setState(() => this.index = index),
-              )
-          ),
+      items: const <BottomNavigationBarItem>[
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home),
+          activeIcon: Icon(Icons.home_outlined),
         ),
-    );
-  }
+        BottomNavigationBarItem(
+
+          icon: Icon(Icons.group_rounded),
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.location_on),
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.assignment),
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.person_sharp),
+        ),
+      ],
+    ),
+    tabBuilder: (context, index) {
+      switch (index) {
+        case 0:
+          return CupertinoTabView(builder: (context) {
+            return CupertinoPageScaffold(
+              child: Home(),
+            );
+          });
+        case 1:
+          return CupertinoTabView(builder: (context) {
+            return CupertinoPageScaffold(
+              child: Home(),
+            );
+          });
+        case 2:
+          return CupertinoTabView(builder: (context) {
+            return CupertinoPageScaffold(
+              child: Text("1"),
+            );
+          });
+        case 3:
+          return CupertinoTabView(builder: (context) {
+            return CupertinoPageScaffold(
+              child: Home(),
+            );
+          });
+        case 4:
+          return CupertinoTabView(builder: (context) {
+            return CupertinoPageScaffold(
+              child: Home(),
+            );
+          });
+        default:
+          return CupertinoTabView(builder: (context) {
+          return CupertinoPageScaffold(
+            child: Home(),
+          );
+        });
+      }
+    },
+  );
+}
 }
