@@ -1,4 +1,4 @@
-import 'package:demo_cuticare/profile.dart';
+import 'package:demo_cuticare/main_pages/profile.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MaterialApp(

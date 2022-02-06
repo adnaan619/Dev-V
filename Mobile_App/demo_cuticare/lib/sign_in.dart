@@ -12,6 +12,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   Color c = const Color(0xFFFF2943);
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,22 +23,25 @@ class _MyAppState extends State<MyApp> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            const SizedBox(height: 70),
-            const Text("Cuti",
+            SizedBox(height: 70),
+            Text("Cuti",
                 style: TextStyle(
                     fontFamily: 'Roboto',
-                    fontSize: 70
+                    fontSize: 70,
+                    fontWeight: FontWeight.bold
                 )),
             Row(
                 children: <Widget>[
-                  const Text("Care",
+                  Text("Care",
                       style:TextStyle(
                           fontFamily: 'Roboto',
+                          fontWeight: FontWeight.bold,
                           fontSize: 70)),
                   Text(".",
                       style:TextStyle(
                           fontFamily: 'Roboto',
                           fontSize: 80,
+                          fontWeight: FontWeight.bold,
                           color: c
                       ))
                 ]
