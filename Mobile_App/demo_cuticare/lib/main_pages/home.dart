@@ -26,20 +26,25 @@ class _HomeState extends State<Home> {
         child: Center(
           child: Scaffold(
               body: SizedBox(
-                height: 170,
-                width: 100,
+                height: 400,
+                width: 400,
                 child: InkWell(
-                  child: Container(
-                    color:Colors.yellowAccent,
-                    child: Text("Click Here")
-                  ),
-                  onTap: (){
+                  onTap: () {
                     Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context)=> Profile())
+                        context,
+                        MaterialPageRoute(builder: (context)=> Profile())
                     );
-                  }
-                ),
+                  }, // Image tapped
+                  splashColor: Colors.white10, // Splash color over image
+                  child: Ink.image(
+                    fit: BoxFit.cover, // Fixes border issues
+                    width: 80,
+                    height: 80,
+                    image: AssetImage(
+                        'assets/camera-icon.png',
+                    ),
+                  ),
+                )
               )
             ),
           ),
