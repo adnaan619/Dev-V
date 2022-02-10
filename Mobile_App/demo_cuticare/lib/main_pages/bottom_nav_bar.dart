@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'home.dart';
-import 'profile.dart';
 
 void main() => runApp(MaterialApp(
     home: BottomNavBar()
@@ -19,7 +18,6 @@ class _BottomNavBarState extends State<BottomNavBar> {
 Widget build(BuildContext context) {
   return CupertinoTabScaffold(
     tabBar: CupertinoTabBar(
-
       items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(
           icon: Icon(Icons.home),

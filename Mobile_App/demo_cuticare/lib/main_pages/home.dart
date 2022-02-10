@@ -1,14 +1,12 @@
 import 'dart:io';
 
 import 'package:demo_cuticare/main_pages/profile.dart';
-import 'package:demo_cuticare/main_pages/sign_in_form.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:tflite/tflite.dart';
-
-import '../sign_in.dart';
+import 'camera.dart';
+import 'gallery.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -49,16 +47,17 @@ class _HomeState extends State<Home> {
     return Scaffold(
         body: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+
               InkWell(
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => SignIn()),
+                    MaterialPageRoute(builder: (context) => Camera()),
                   );
                 },
                 child: Container(
+                  margin: EdgeInsets.only(left: 70),
                   width: 250.0,
                   height: 250.0,
                   decoration: BoxDecoration(
@@ -75,10 +74,11 @@ class _HomeState extends State<Home> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => SignIn()),
+                    MaterialPageRoute(builder: (context) => Gallery()),
                   );
                 },
                 child: Container(
+                  margin: EdgeInsets.only(left: 70),
                   width: 250.0,
                   height: 250.0,
                   decoration: BoxDecoration(
