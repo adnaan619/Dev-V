@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "449778728131",
+    "project_id": "upload-images-ca62d",
+    "storage_bucket": "upload-images-ca62d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:449778728131:android:95473016f2d91f03b07676",
+        "android_client_info": {
+          "package_name": "com.example.demo_cuticare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "449778728131-2e39iuv521e5bae6j10u1psfai01k421.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBG3XI8mvJzD0kLUbxmmNhIrY-rOrLSWbw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "449778728131-2e39iuv521e5bae6j10u1psfai01k421.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
