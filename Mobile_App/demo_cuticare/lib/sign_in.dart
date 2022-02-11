@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 void main() => runApp(MaterialApp(
-    home: SignIn()
+    debugShowCheckedModeBanner: false,
+    home: SignIn(),
+
 ));
 
 class SignIn extends StatefulWidget {
