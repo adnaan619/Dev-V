@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:demo_cuticare/sign_in.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 void main() => runApp(MaterialApp(
   theme:
@@ -16,6 +17,7 @@ class SplashScreen extends StatefulWidget{
   _SplashScreenState createState() => _SplashScreenState();
 }
 
+
 class _SplashScreenState extends State<SplashScreen>{
   @override
   void initState(){
@@ -23,8 +25,6 @@ class _SplashScreenState extends State<SplashScreen>{
     Timer(Duration(seconds: 5), () => Navigator.of(context).pushReplacement(MaterialPageRoute(
       builder: (BuildContext context) => SignIn())));
   }
-
-
 
   @override
   Widget build(BuildContext context){
@@ -44,25 +44,40 @@ class _SplashScreenState extends State<SplashScreen>{
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      CircleAvatar(
-                        backgroundColor: Colors.white,
-                        radius: 70.0,
-                        child: Icon(
-                          Icons.shopping_cart,
-                          color: Colors.greenAccent,
-                          size: 70.0,
+                      Container(
+                        padding: const EdgeInsets.all(20.0),
+                        width: 100,
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: Colors.yellow,
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.white,
+                              blurRadius: 6,
+                              offset: Offset(4, 8),
+                            ),
+                          ],
                         ),
                       ),
-                      Text(
-                        "\nCutiCare.",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 50.0,
-                            fontWeight: FontWeight.bold,
-                            letterSpacing: 2.0,
-                            fontFamily: 'Roboto-Regular',
+
+                      Container(
+                        padding: const EdgeInsets.all(20.0),
+                        width: 270.0,
+                        child: TextLiquidFill(
+                          text: "\nCutiCare.",
+                          waveColor: Colors.white,
+                          boxBackgroundColor: Color(0xFFFF2943),
+                          textStyle: TextStyle(
+                              //color: Colors.white,
+                              fontSize: 50.0,
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 2.0,
+                          ),
+                          boxHeight: 200.0,
                         ),
                       ),
+
                     ],
                   ),
                 ),
