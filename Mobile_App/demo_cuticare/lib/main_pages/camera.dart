@@ -7,14 +7,6 @@ import 'package:path/path.dart';
 import '../button_widget.dart';
 import 'firebase_api.dart';
 
-Future main() async{
-  WidgetsFlutterBinding.ensureInitialized();
-
-  await Firebase.initializeApp();
-
-  runApp(MaterialApp(home: Camera()));
-}
-
 
 class Camera extends StatefulWidget {
   const Camera({Key? key}) : super(key: key);
@@ -65,6 +57,9 @@ class _CameraState extends State<Camera> {
   }
 
   Future selectFile() async{
+    WidgetsFlutterBinding.ensureInitialized();
+    await Firebase.initializeApp();
+
     final result = await ImagePicker().pickImage(source: ImageSource.camera);
 
     if(result == null) return;

@@ -8,13 +8,6 @@ import 'package:image_picker/image_picker.dart';
 import 'camera.dart';
 import 'gallery.dart';
 
-Future main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-
-  await Firebase.initializeApp();
-
-  runApp(MaterialApp(home: Home()));
-}
 class Home extends StatefulWidget {
   @override
   State<Home> createState() => _HomeState();

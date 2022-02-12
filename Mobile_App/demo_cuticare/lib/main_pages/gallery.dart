@@ -7,16 +7,8 @@ import 'package:path/path.dart';
 import '../button_widget.dart';
 import 'firebase_api.dart';
 
-
-Future main() async{
-  WidgetsFlutterBinding.ensureInitialized();
-
-  await Firebase.initializeApp();
-
-  runApp(MaterialApp(home: Gallery()));
-}
-
 class Gallery extends StatefulWidget {
+
   const Gallery({Key? key}) : super(key: key);
 
   @override
@@ -64,6 +56,9 @@ class _GalleryState extends State<Gallery> {
   }
 
   Future selectFile() async{
+    WidgetsFlutterBinding.ensureInitialized();
+    await Firebase.initializeApp();
+
     final result = await FilePicker.platform.pickFiles(allowMultiple: false);
 
     if(result == null) return;
