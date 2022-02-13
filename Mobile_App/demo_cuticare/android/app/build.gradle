@@ -30,6 +30,7 @@ apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 android {
     compileSdkVersion 31
 
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -47,7 +48,9 @@ android {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.example.demo_cuticare"
         minSdkVersion 19
+
         targetSdkVersion 31
+
         multiDexEnabled true
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
