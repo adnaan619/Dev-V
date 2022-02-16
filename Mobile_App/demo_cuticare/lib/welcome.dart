@@ -49,11 +49,15 @@ class _SplashScreenState extends State<SplashScreen>{
                         width: 100,
                         height: 100,
                         decoration: BoxDecoration(
-                          color: Colors.yellow,
+                          // color: Colors.yellow,
+                        image: DecorationImage(
+                          fit: BoxFit.fitHeight,
+                          image: AssetImage('assets/images/applogo.png'),
+                        ),
                           borderRadius: BorderRadius.circular(20),
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.white,
+                              color: Colors.yellow,
                               blurRadius: 6,
                               offset: Offset(4, 8),
                             ),
