@@ -23,10 +23,10 @@ class _HomeState extends State<Home> {
       if (image == null) return;
       final imageTemporary = File(image.path);
       setState(() => this.image = imageTemporary);
-      MaterialPageRoute(
-          builder: (context) =>
-              Profile()
-      );
+      // MaterialPageRoute(
+      //     builder: (context) =>
+      //         Profile()
+      // );
     } on PlatformException catch (e) {
       print('Failed to pick image:  $e');
     }
