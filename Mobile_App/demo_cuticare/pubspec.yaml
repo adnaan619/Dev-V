@@ -43,8 +43,8 @@ dependencies:
   firebase_storage: ^10.2.7
   firebase_core: ^1.12.0
   file_picker: ^4.3.3
-  animated_text_kit: ^4.2.1
 
+  animated_text_kit: ^4.2.1
 
 dev_dependencies:
   flutter_test:
