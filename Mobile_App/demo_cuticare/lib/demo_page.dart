@@ -61,7 +61,7 @@ class _GettingStartedScreenState extends State<GettingStartedScreen>{
       body: Container(
         color: Colors.white,
         child: Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(50.0),
           child: Column(
             children: <Widget> [
               Expanded(
@@ -79,7 +79,7 @@ class _GettingStartedScreenState extends State<GettingStartedScreen>{
                       alignment: AlignmentDirectional.topStart,
                       children: <Widget> [
                         Container(
-                          margin: const EdgeInsets.only(bottom: 50),
+                          margin: const EdgeInsets.only(bottom: 20),
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -99,6 +99,7 @@ class _GettingStartedScreenState extends State<GettingStartedScreen>{
               ),
               SizedBox(
                 height: 20,
+                width: 50,
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -106,7 +107,9 @@ class _GettingStartedScreenState extends State<GettingStartedScreen>{
                   RaisedButton(
                     child: Text(
                       'Skip',
-                      style: TextStyle(fontSize: 20),
+                      style: TextStyle(
+                          fontSize: 20
+                      ),
                     ),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
@@ -122,13 +125,13 @@ class _GettingStartedScreenState extends State<GettingStartedScreen>{
                       Text(
                         'Back',
                         style: TextStyle(
-                          fontSize: 18,
+                          fontSize: 20,
                         ),
                       ),
                       FlatButton(
                         child: Text(
                           'Next',
-                          style: TextStyle(fontSize: 18),
+                          style: TextStyle(fontSize: 20),
                         ),
                         onPressed: null),
                     ],
@@ -171,12 +174,12 @@ class SlideItem extends StatelessWidget{
         Text(
           slideList[index].title,
           style: TextStyle(
-            fontSize: 22,
+            fontSize: 20,
             color: Theme.of(context).primaryColor,
           ),
         ),
         SizedBox(
-            height: 10
+            height: 10,
         ),
         Text(
           slideList[index].description,
