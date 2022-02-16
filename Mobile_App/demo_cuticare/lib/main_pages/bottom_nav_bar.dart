@@ -1,8 +1,10 @@
+import 'package:demo_cuticare/main_pages/profile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'home.dart';
 
 void main() => runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
     home: BottomNavBar()
 ));
 
@@ -22,10 +24,6 @@ Widget build(BuildContext context) {
         BottomNavigationBarItem(
           icon: Icon(Icons.home),
           activeIcon: Icon(Icons.home_outlined),
-        ),
-        BottomNavigationBarItem(
-
-          icon: Icon(Icons.group_rounded),
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.location_on),
@@ -58,22 +56,16 @@ Widget build(BuildContext context) {
               child: Text("1"),
             );
           });
-        case 3:
-          return CupertinoTabView(builder: (context) {
-            return CupertinoPageScaffold(
-              child: Home(),
-            );
-          });
-        case 4:
-          return CupertinoTabView(builder: (context) {
-            return CupertinoPageScaffold(
-              child: Home(),
-            );
-          });
+        // case 3:
+        //   return CupertinoTabView(builder: (context) {
+        //     return CupertinoPageScaffold(
+        //       child: Profile(),
+        //     );
+        //   });
         default:
           return CupertinoTabView(builder: (context) {
-          return CupertinoPageScaffold(
-            child: Home(),
+            return CupertinoPageScaffold(
+              child: Home(),
           );
         });
       }
