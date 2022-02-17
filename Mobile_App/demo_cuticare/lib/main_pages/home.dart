@@ -1,9 +1,6 @@
 import 'dart:io';
 
 import 'package:demo_cuticare/main_pages/profile.dart';
-
-import 'package:demo_cuticare/main_pages/sign_in_form.dart';
-
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
