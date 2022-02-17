@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
+import 'package:demo_cuticare/main_pages/home.dart';
 
 void main() => runApp(MyApp());
 
@@ -114,13 +115,18 @@ class _GettingStartedScreenState extends State<GettingStartedScreen>{
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    padding: const EdgeInsets.all(5),
+                    padding: const EdgeInsets.all(10),
                     color: Theme.of(context).primaryColor,
                     textColor: Colors.white,
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Home()),
+                      );
+                    },
                   ),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget> [
                       Text(
                         'Back',
