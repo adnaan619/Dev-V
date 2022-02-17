@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'package:demo_cuticare/main_pages/home.dart';
+import 'package:demo_cuticare/main_pages/bottom_nav_bar.dart';
 
 void main() => runApp(MyApp());
 
