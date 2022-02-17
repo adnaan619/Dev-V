@@ -56,12 +56,12 @@ Widget build(BuildContext context) {
               child: Text("1"),
             );
           });
-        // case 3:
-        //   return CupertinoTabView(builder: (context) {
-        //     return CupertinoPageScaffold(
-        //       child: Profile(),
-        //     );
-        //   });
+        case 3:
+          return CupertinoTabView(builder: (context) {
+            return CupertinoPageScaffold(
+              child: Profile(),
+            );
+          });
         default:
           return CupertinoTabView(builder: (context) {
             return CupertinoPageScaffold(
