@@ -20,11 +20,11 @@ class SplashScreen extends StatefulWidget{
 
 class _SplashScreenState extends State<SplashScreen>{
   @override
-  void initState(){
-    super.initState();
-    Timer(Duration(seconds: 5), () => Navigator.of(context).pushReplacement(MaterialPageRoute(
-      builder: (BuildContext context) => SignIn())));
-  }
+  // void initState(){
+  //   super.initState();
+  //   Timer(Duration(seconds: 5), () => Navigator.of(context).pushReplacement(MaterialPageRoute(
+  //     builder: (BuildContext context) => SignIn())));
+  // }
 
   @override
   Widget build(BuildContext context){
@@ -49,11 +49,15 @@ class _SplashScreenState extends State<SplashScreen>{
                         width: 100,
                         height: 100,
                         decoration: BoxDecoration(
-                          color: Colors.yellow,
+                          // color: Colors.yellow,
+                        image: DecorationImage(
+                          fit: BoxFit.fitHeight,
+                          image: AssetImage('assets/images/applogo.png'),
+                        ),
                           borderRadius: BorderRadius.circular(20),
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.white,
+                              color: Colors.yellow,
                               blurRadius: 6,
                               offset: Offset(4, 8),
                             ),
