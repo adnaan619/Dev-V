@@ -197,7 +197,7 @@ class _ProfileState extends State<Profile> {
                 child: const Text('Take Photo'),
               ),
               SimpleDialogOption(
-                onPressed: () { Navigator.pop(context); },
+                onPressed: () { selectGallery(); },
                 child: const Text('Choose from Gallery'),
               ),
             ],
@@ -208,6 +208,20 @@ class _ProfileState extends State<Profile> {
   selectFile() async {
     PickedFile? cameraImage = await ImagePicker().getImage(
         source: ImageSource.camera);
+
+    if (cameraImage == null) return;
+
+
+    setState(() {
+      path = cameraImage.path;
+      file = File(path);
+      //output = null;
+    });
+  }
+
+  selectGallery() async {
+    PickedFile? cameraImage = await ImagePicker().getImage(
+        source: ImageSource.gallery);
 
     if (cameraImage == null) return;
 
