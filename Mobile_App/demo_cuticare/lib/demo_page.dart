@@ -118,12 +118,10 @@ class _GettingStartedScreenState extends State<GettingStartedScreen>{
                     padding: const EdgeInsets.all(10),
                     color: Theme.of(context).primaryColor,
                     textColor: Colors.white,
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Home()),
-                      );
-                    },
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (BuildContext context) => BottomNavBar()));
+                      }
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -210,17 +208,17 @@ class Slide{
 
 final slideList = [
   Slide(
-    imageUrl: 'assets/images/002.png',
+    imageUrl: 'assets/002.png',
     title: 'Step 1',
     description: 'Open the camera on your device to capture!',
   ),
   Slide(
-    imageUrl: 'assets/images/001.png',
+    imageUrl: 'assets/001.png',
     title: 'Step 2',
     description: 'Focus the camera precisely on the patch.',
   ),
   Slide(
-    imageUrl: 'assets/images/003.png',
+    imageUrl: 'assets/001.png',
     title: 'Step 3',
     description: 'Upload the image.',
   ),
