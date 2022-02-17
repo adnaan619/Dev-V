@@ -210,17 +210,17 @@ class Slide{
 
 final slideList = [
   Slide(
-    imageUrl: 'assets/images/monkey.jpg',
+    imageUrl: 'assets/images/002.png',
     title: 'Step 1',
     description: 'Open the camera on your device to capture!',
   ),
   Slide(
-    imageUrl: 'assets/images/monkey.jpg',
+    imageUrl: 'assets/images/001.png',
     title: 'Step 2',
     description: 'Focus the camera precisely on the patch.',
   ),
   Slide(
-    imageUrl: 'assets/images/monkey.jpg',
+    imageUrl: 'assets/images/003.png',
     title: 'Step 3',
     description: 'Upload the image.',
   ),
