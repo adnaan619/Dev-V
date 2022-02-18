@@ -45,7 +45,7 @@ class _CameraState extends State<Camera> {
   }
 
   loadModel() async{
-    await Tflite.loadModel(model: 'assets/model.tflite', labels: 'assets/labels.txt');
+    await Tflite.loadModel(model: 'assets/tf_lite_model.tflite', labels: 'assets/labels.txt');
   }
 
   @override
