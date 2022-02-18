@@ -62,7 +62,7 @@ class _GettingStartedScreenState extends State<GettingStartedScreen>{
       body: Container(
         color: Colors.white,
         child: Padding(
-          padding: const EdgeInsets.all(50.0),
+          padding: const EdgeInsets.all(20.0),
           child: Column(
             children: <Widget> [
               Expanded(
@@ -80,7 +80,7 @@ class _GettingStartedScreenState extends State<GettingStartedScreen>{
                       alignment: AlignmentDirectional.topStart,
                       children: <Widget> [
                         Container(
-                          margin: const EdgeInsets.only(bottom: 20),
+                          margin: const EdgeInsets.only(bottom: 40),
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -100,7 +100,7 @@ class _GettingStartedScreenState extends State<GettingStartedScreen>{
               ),
               SizedBox(
                 height: 20,
-                width: 50,
+                width: 100,
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -116,7 +116,7 @@ class _GettingStartedScreenState extends State<GettingStartedScreen>{
                       borderRadius: BorderRadius.circular(10),
                     ),
                     padding: const EdgeInsets.all(10),
-                    color: Theme.of(context).primaryColor,
+                    color: Colors.redAccent,//Theme.of(context).primaryColor,
                     textColor: Colors.white,
                       onPressed: () {
                         Navigator.of(context).push(MaterialPageRoute(
@@ -137,7 +137,11 @@ class _GettingStartedScreenState extends State<GettingStartedScreen>{
                           'Next',
                           style: TextStyle(fontSize: 20),
                         ),
-                        onPressed: null),
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (BuildContext context) => BottomNavBar()));
+                        }
+                      ),
                     ],
                   ),
                 ],
@@ -162,8 +166,8 @@ class SlideItem extends StatelessWidget{
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         Container(
-          width: 200,
-          height: 200,
+          width: 300,
+          height: 250,
           decoration: BoxDecoration(
             shape: BoxShape.rectangle,
             image: DecorationImage(
@@ -178,8 +182,8 @@ class SlideItem extends StatelessWidget{
         Text(
           slideList[index].title,
           style: TextStyle(
-            fontSize: 20,
-            color: Theme.of(context).primaryColor,
+            fontSize: 30,
+            color: Colors.redAccent,
           ),
         ),
         SizedBox(
@@ -218,7 +222,7 @@ final slideList = [
     description: 'Focus the camera precisely on the patch.',
   ),
   Slide(
-    imageUrl: 'assets/001.png',
+    imageUrl: 'assets/003.png',
     title: 'Step 3',
     description: 'Upload the image.',
   ),
@@ -236,7 +240,7 @@ class SlideDots extends StatelessWidget{
       height: isActive ? 12 : 8,
       width: isActive ? 12 : 8,
       decoration: BoxDecoration(
-        color: isActive ? Theme.of(context).primaryColor : Colors.grey,
+        color: isActive ? Colors.redAccent : Colors.black,
         borderRadius: BorderRadius.all(Radius.circular(12)),
       ),
     );
