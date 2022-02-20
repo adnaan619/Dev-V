@@ -4,6 +4,8 @@ import 'package:demo_cuticare/main_pages/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../resources.dart';
+
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
 
@@ -13,10 +15,11 @@ class Profile extends StatefulWidget {
 
 class _ProfileState extends State<Profile> {
   bool showPassword = false;
-
-  File? file;
-  final picker = ImagePicker();
+  File? imageURI;
+  List? output;
   late String path;
+  final picker = ImagePicker();
+
   @override
   Widget build(BuildContext context) {
 
@@ -29,7 +32,7 @@ class _ProfileState extends State<Profile> {
             leading: IconButton(
               icon: Icon(
                 Icons.arrow_back,
-                color: Colors.green,
+                color: c,
               ),
               onPressed: () {},
             ),
@@ -37,7 +40,7 @@ class _ProfileState extends State<Profile> {
               IconButton(
                 icon: Icon(
                   Icons.settings,
-                  color: Colors.green,
+                  color: c,
                 ),
                 onPressed: () {
                   Navigator.of(context).push(MaterialPageRoute(
@@ -63,39 +66,27 @@ class _ProfileState extends State<Profile> {
                   child: Stack(
                     children: [
                       Container(
-                          width: 130,
-                          height: 130,
-                          decoration: BoxDecoration(
-                              border: Border.all(
-                                  width: 4,
-                                  color: Theme.of(context).scaffoldBackgroundColor
-                              ),
-                              boxShadow:[
-                                BoxShadow(
-                                    spreadRadius: 2, blurRadius: 10,
-                                    color: Colors.black.withOpacity(0.1),
-                                    offset: Offset(1,10)
-                                ),
-                              ],
-                              shape:BoxShape.circle,
-                              image: DecorationImage(
-                                  image: NetworkImage("")
-                              )
-                          )
+                             // imageURI != null
+                             //     ? Image.file(
+                             //    imageURI!,
+                             //    width: 0.99,
+                             //    height: 240,
+                             //    fit: BoxFit.fill,
+                             //  )
+
                       ),
                       Positioned(
                           bottom: 0,
                           right: 0,
                           child: Container(
-                            height: 40,
-                            width: 40,
+                            // padding: EdgeInsets.all(0.1),
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               border: Border.all(
                                 width:4,
                                 color: Theme.of(context).scaffoldBackgroundColor,
                               ),
-                              color: Colors.green,
+                              color: c,
                             ),
                             child: IconButton(
                               icon: Icon(Icons.edit),
@@ -104,7 +95,8 @@ class _ProfileState extends State<Profile> {
                                 _askedToLead();
                               },
                             ),
-                          ))
+                          ),
+                      )
                     ],
                   ),
                 ),
@@ -120,10 +112,11 @@ class _ProfileState extends State<Profile> {
                 ),
                 Row(
                   children: [
-                    OutlineButton(
-                      padding: EdgeInsets.symmetric(horizontal: 50),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20)),
+                    SizedBox(width: 40),
+                    OutlinedButton(
+                      // padding: EdgeInsets.symmetric(horizontal: 50),
+                      // shape: RoundedRectangleBorder(
+                      //     borderRadius: BorderRadius.circular(20)),
 
                       onPressed: (){},
                       child: Text("Cancel",
@@ -131,14 +124,17 @@ class _ProfileState extends State<Profile> {
                               letterSpacing: 2.2,
                               color: Colors.black)),
                     ),
-                    SizedBox(width: 50),
-                    RaisedButton(
+                    SizedBox(width: 100),
+                    ElevatedButton(
                         onPressed: (){},
-                        color: Colors.green,
-                        padding: EdgeInsets.symmetric(horizontal: 50),
-                        elevation: 2,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20)),
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all<Color>(c),
+                        ),
+                        // color: c,
+                        // padding: EdgeInsets.symmetric(horizontal: 50),
+                        // // elevation: 2,
+                        // shape: RoundedRectangleBorder(
+                        //     borderRadius: BorderRadius.circular(20)),
                         child: Text("SAVE",
                             style: TextStyle(
                                 fontSize: 14,
@@ -193,11 +189,11 @@ class _ProfileState extends State<Profile> {
             title: const Text('Select assignment'),
             children: <Widget>[
               SimpleDialogOption(
-                onPressed: () { selectFile(); },
+                onPressed: () { getImageFromCamera();},
                 child: const Text('Take Photo'),
               ),
               SimpleDialogOption(
-                onPressed: () { selectGallery(); },
+                onPressed: () { getImageFromGallery(); },
                 child: const Text('Choose from Gallery'),
               ),
             ],
@@ -205,31 +201,29 @@ class _ProfileState extends State<Profile> {
         }
     );
   }
-  selectFile() async {
-    PickedFile? cameraImage = await ImagePicker().getImage(
-        source: ImageSource.camera);
-
-    if (cameraImage == null) return;
-
-
+  Future getImageFromCamera() async {
+    var image = await ImagePicker().getImage(source: ImageSource.camera);
+    if (image == null) {
+      return null;
+    }
     setState(() {
-      path = cameraImage.path;
-      file = File(path);
-      //output = null;
+      imageURI = File(image.path);
+      path = image.path;
+      output = null;
     });
+    // ignore: deprecated_member_use
   }
 
-  selectGallery() async {
-    PickedFile? cameraImage = await ImagePicker().getImage(
-        source: ImageSource.gallery);
-
-    if (cameraImage == null) return;
-
-
+  Future getImageFromGallery() async {
+    // ignore: deprecated_member_use
+    var image = await ImagePicker().getImage(source: ImageSource.gallery);
+    if (image == null) {
+      return null;
+    }
     setState(() {
-      path = cameraImage.path;
-      file = File(path);
-      //output = null;
+      imageURI = File(image.path);
+      path = image.path;
+      output = null;
     });
   }
 

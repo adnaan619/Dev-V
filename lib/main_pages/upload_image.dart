@@ -1,19 +1,21 @@
 import 'dart:io';
-import 'package:file_picker/file_picker.dart';
-import 'package:firebase_core/firebase_core.dart';
+// import 'package:file_picker/file_picker.dart';
+// import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:path/path.dart';
-import '../button_widget.dart';
-import 'firebase_api.dart';
+// import 'package:path/path.dart';
+// import '../button_widget.dart';
+// import 'firebase_api.dart';
 import 'package:tflite/tflite.dart';
 
-class Gallery extends StatefulWidget {
+class ImageUpload extends StatefulWidget {
+  const ImageUpload({Key? key}) : super(key: key);
+
   @override
   _State createState() => _State();
 }
 
-class _State extends State<Gallery> {
+class _State extends State<ImageUpload> {
   File? imageURI;
   List? output;
   late String path;
@@ -49,11 +51,12 @@ class _State extends State<Gallery> {
     await Tflite.loadModel(
         model: "assets/model_unquant.tflite", labels: "assets/labels.txt");
     var result = await Tflite.runModelOnImage(
-      path: path,
-      numResults: 15, //13
-      threshold: 0.5,
-      imageMean: 127.5,
-      imageStd: 127.5, //127.5
+        path: path,   // required
+        imageMean: 127.5,   // defaults to 117.0
+        imageStd: 127.5,  // defaults to 1.0
+        numResults: 4,    // defaults to 5
+        threshold: 0.5,   // defaults to 0.1
+        asynch: true
     );
 
     setState(() {
@@ -137,14 +140,14 @@ class _State extends State<Gallery> {
               output == null
                   ? Text(' ')
                   : Padding(
-                      padding: const EdgeInsets.only(left: 25, right: 25),
-                      child: Container(
-                  padding: EdgeInsets.all(8),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.grey.shade200,
-                  ),
-                  child: RichText(
+                padding: const EdgeInsets.only(left: 25, right: 25),
+                    child: Container(
+                      padding: EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.grey.shade200,
+                      ),
+                      child: RichText(
                       text: TextSpan(
                           text: prediction().toString(),
                           style: TextStyle(

@@ -1,7 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../resources.dart';
+
 class Settings extends StatefulWidget {
+  const Settings({Key? key}) : super(key: key);
+
   @override
   _SettingsState createState() => _SettingsState();
 }
@@ -19,7 +23,7 @@ class _SettingsState extends State<Settings> {
           },
           icon: Icon(
             Icons.arrow_back,
-            color: Colors.green,
+            color: c,
           ),
         ),
       ),
@@ -38,13 +42,13 @@ class _SettingsState extends State<Settings> {
               children: [
                 Icon(
                   Icons.person,
-                  color: Colors.green,
+                  color: c,
                 ),
                 SizedBox(
                   width: 8,
                 ),
                 Text(
-                  "Account",
+                  "My CutiCare",
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ],
@@ -60,7 +64,6 @@ class _SettingsState extends State<Settings> {
             buildAccountOptionRow(context, "Content settings"),
             buildAccountOptionRow(context, "Social"),
             buildAccountOptionRow(context, "Language"),
-            buildAccountOptionRow(context, "Privacy and security"),
             SizedBox(
               height: 40,
             ),
@@ -68,13 +71,13 @@ class _SettingsState extends State<Settings> {
               children: [
                 Icon(
                   Icons.volume_up_outlined,
-                  color: Colors.green,
+                  color: c,
                 ),
                 SizedBox(
                   width: 8,
                 ),
                 Text(
-                  "Notifications",
+                  "Help & Support",
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ],
@@ -86,9 +89,9 @@ class _SettingsState extends State<Settings> {
             SizedBox(
               height: 10,
             ),
-            buildNotificationOptionRow("New for you", true),
-            buildNotificationOptionRow("Account activity", true),
-            buildNotificationOptionRow("Opportunity", false),
+            buildAccountOptionRow(context, "Contact us"),
+            buildAccountOptionRow(context, "Terms & Conditions"),
+            buildAccountOptionRow(context, "Privacy and security"),
             SizedBox(
               height: 50,
             ),
@@ -140,14 +143,14 @@ class _SettingsState extends State<Settings> {
                 title: Text(title),
                 content: Column(
                   mainAxisSize: MainAxisSize.min,
-                  children: [
+                  children: const [
                     Text("Option 1"),
                     Text("Option 2"),
                     Text("Option 3"),
                   ],
                 ),
                 actions: [
-                  FlatButton(
+                  TextButton(
                       onPressed: () {
                         Navigator.of(context).pop();
                       },

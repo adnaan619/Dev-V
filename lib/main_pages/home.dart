@@ -1,16 +1,16 @@
 import 'dart:io';
 
-import 'package:demo_cuticare/main_pages/profile.dart';
-import 'package:firebase_core/firebase_core.dart';
+// import 'package:demo_cuticare/main_pages/profile.dart';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:tflite/tflite.dart';
-import '../sign_in.dart';
-import 'camera.dart';
-import 'gallery.dart';
+import 'upload_image.dart';
 
 class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
+
   @override
   State<Home> createState() => _HomeState();
 }
@@ -30,7 +30,9 @@ class _HomeState extends State<Home> {
       //         Profile()
       // );
     } on PlatformException catch (e) {
-      print('Failed to pick image:  $e');
+      if (kDebugMode) {
+        print('Failed to pick image:  $e');
+      }
     }
   }
 
@@ -40,58 +42,27 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-        body: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-   
-            children: [
-
-
-              InkWell(
-                onTap: () {
-                  Navigator.push(
-                    context,
-
-                    MaterialPageRoute(builder: (context) => Camera()),
-                  );
-                },
-                child: Container(
-                  margin: EdgeInsets.only(left: 70),
-
-                  width: 250.0,
-                  height: 250.0,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage(
-                          'assets/camera-icon.png'),
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                ),
+      body: Center(
+        child: InkWell(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ImageUpload()),
+            );
+          },
+          child: Container(
+            width: 250.0,
+            height: 250.0,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(
+                    'assets/camera-icon.png'),
+                fit: BoxFit.fill,
               ),
-              SizedBox(height: 10),
-              InkWell(
-                onTap: () {
-                  Navigator.push(
-                    context,
-
-                    MaterialPageRoute(builder: (context) => Gallery()),
-                  );
-                },
-                child: Container(
-                  margin: EdgeInsets.only(left: 70),
-                  width: 250.0,
-                  height: 250.0,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage(
-                          'assets/camera-icon.png'),
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                ),
-              ),
-            ])
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
