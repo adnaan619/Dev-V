@@ -137,8 +137,8 @@ class _State extends State<Gallery> {
               output == null
                   ? Text(' ')
                   : Padding(
-                padding: const EdgeInsets.only(left: 25, right: 25),
-                child: Container(
+                      padding: const EdgeInsets.only(left: 25, right: 25),
+                      child: Container(
                   padding: EdgeInsets.all(8),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),

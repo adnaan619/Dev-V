@@ -1,33 +1,41 @@
 {
   "project_info": {
-    "project_number": "449778728131",
-    "project_id": "upload-images-ca62d",
-    "storage_bucket": "upload-images-ca62d.appspot.com"
+    "project_number": "693543996774",
+    "project_id": "cuti-care",
+    "storage_bucket": "cuti-care.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:449778728131:android:95473016f2d91f03b07676",
+        "mobilesdk_app_id": "1:693543996774:android:0155bd9793632d3882cca7",
         "android_client_info": {
           "package_name": "com.example.demo_cuticare"
         }
       },
       "oauth_client": [
         {
-          "client_id": "449778728131-2e39iuv521e5bae6j10u1psfai01k421.apps.googleusercontent.com",
+          "client_id": "693543996774-h73c1k1boblkpd91fp8jmq4ujd4qearq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.demo_cuticare",
+            "certificate_hash": "f8cc1ad8ca2d798524b49bcebfe2261a3b65b679"
+          }
+        },
+        {
+          "client_id": "693543996774-9n6s8eanqqp9p01f8qhkqgiejccl8jfg.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBG3XI8mvJzD0kLUbxmmNhIrY-rOrLSWbw"
+          "current_key": "AIzaSyBuTAqJBQl4MwgDpMqjDab4na41ST_yuYk"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "449778728131-2e39iuv521e5bae6j10u1psfai01k421.apps.googleusercontent.com",
+              "client_id": "693543996774-9n6s8eanqqp9p01f8qhkqgiejccl8jfg.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
