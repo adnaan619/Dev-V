@@ -9,6 +9,7 @@ import 'home.dart';
 //     home: BottomNavBar()
 // ));
 
+
 class BottomNavBar extends StatefulWidget {
 const BottomNavBar({Key? key}) : super(key: key);
 
@@ -23,6 +24,7 @@ Widget build(BuildContext context) {
     tabBar: CupertinoTabBar(
       items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(
+
           icon: Icon(Icons.home_outlined),
           activeIcon: Icon(Icons.home),
         ),
@@ -40,6 +42,7 @@ Widget build(BuildContext context) {
         ),
       ],
       activeColor: c
+
     ),
     tabBuilder: (context, index) {
       switch (index) {

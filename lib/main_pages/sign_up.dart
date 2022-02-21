@@ -1,3 +1,4 @@
+
 // ignore_for_file: avoid_print
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -27,12 +28,14 @@ class _SignUpState extends State<SignUp> {
   final confirmPasswordEditingController = TextEditingController();
 
   String? errorMessage;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       //appBar: AppBar(
       //title: Text('Login Page '),
       //),
+
       body: SingleChildScrollView(
 
         child: Form(
@@ -327,6 +330,5 @@ class _SignUpState extends State<SignUp> {
 
     Navigator.pushAndRemoveUntil((context), MaterialPageRoute(builder: (context) => BottomNavBar()), (route) => false);
   }
-
 
 }

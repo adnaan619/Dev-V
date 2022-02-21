@@ -1,10 +1,9 @@
 import 'dart:io';
-
 import 'package:demo_cuticare/main_pages/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-
 import '../resources.dart';
+
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -15,6 +14,7 @@ class Profile extends StatefulWidget {
 
 class _ProfileState extends State<Profile> {
   bool showPassword = false;
+
   File? imageURI;
   List? output;
   late String path;
@@ -32,7 +32,9 @@ class _ProfileState extends State<Profile> {
             leading: IconButton(
               icon: Icon(
                 Icons.arrow_back,
+
                 color: c,
+
               ),
               onPressed: () {},
             ),
@@ -40,7 +42,9 @@ class _ProfileState extends State<Profile> {
               IconButton(
                 icon: Icon(
                   Icons.settings,
+
                   color: c,
+
                 ),
                 onPressed: () {
                   Navigator.of(context).push(MaterialPageRoute(
@@ -74,19 +78,24 @@ class _ProfileState extends State<Profile> {
                              //    fit: BoxFit.fill,
                              //  )
 
+
                       ),
                       Positioned(
                           bottom: 0,
                           right: 0,
                           child: Container(
+
                             // padding: EdgeInsets.all(0.1),
+
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               border: Border.all(
                                 width:4,
                                 color: Theme.of(context).scaffoldBackgroundColor,
                               ),
+
                               color: c,
+
                             ),
                             child: IconButton(
                               icon: Icon(Icons.edit),
@@ -95,8 +104,10 @@ class _ProfileState extends State<Profile> {
                                 _askedToLead();
                               },
                             ),
+
                           ),
                       )
+
                     ],
                   ),
                 ),
@@ -112,11 +123,13 @@ class _ProfileState extends State<Profile> {
                 ),
                 Row(
                   children: [
+
                     SizedBox(width: 40),
                     OutlinedButton(
                       // padding: EdgeInsets.symmetric(horizontal: 50),
                       // shape: RoundedRectangleBorder(
                       //     borderRadius: BorderRadius.circular(20)),
+
 
                       onPressed: (){},
                       child: Text("Cancel",
@@ -124,6 +137,7 @@ class _ProfileState extends State<Profile> {
                               letterSpacing: 2.2,
                               color: Colors.black)),
                     ),
+
                     SizedBox(width: 100),
                     ElevatedButton(
                         onPressed: (){},
@@ -135,6 +149,7 @@ class _ProfileState extends State<Profile> {
                         // // elevation: 2,
                         // shape: RoundedRectangleBorder(
                         //     borderRadius: BorderRadius.circular(20)),
+
                         child: Text("SAVE",
                             style: TextStyle(
                                 fontSize: 14,
@@ -189,11 +204,13 @@ class _ProfileState extends State<Profile> {
             title: const Text('Select assignment'),
             children: <Widget>[
               SimpleDialogOption(
+
                 onPressed: () { getImageFromCamera();},
                 child: const Text('Take Photo'),
               ),
               SimpleDialogOption(
                 onPressed: () { getImageFromGallery(); },
+
                 child: const Text('Choose from Gallery'),
               ),
             ],
@@ -201,6 +218,7 @@ class _ProfileState extends State<Profile> {
         }
     );
   }
+
   Future getImageFromCamera() async {
     var image = await ImagePicker().getImage(source: ImageSource.camera);
     if (image == null) {
@@ -224,6 +242,7 @@ class _ProfileState extends State<Profile> {
       imageURI = File(image.path);
       path = image.path;
       output = null;
+
     });
   }
 
