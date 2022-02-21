@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+
 import '../resources.dart';
 
 class Settings extends StatefulWidget {
   const Settings({Key? key}) : super(key: key);
+
 
   @override
   _SettingsState createState() => _SettingsState();
@@ -23,7 +25,9 @@ class _SettingsState extends State<Settings> {
           },
           icon: Icon(
             Icons.arrow_back,
+
             color: c,
+
           ),
         ),
       ),
@@ -42,13 +46,17 @@ class _SettingsState extends State<Settings> {
               children: [
                 Icon(
                   Icons.person,
+
                   color: c,
+
                 ),
                 SizedBox(
                   width: 8,
                 ),
                 Text(
+
                   "My CutiCare",
+
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ],
@@ -64,6 +72,8 @@ class _SettingsState extends State<Settings> {
             buildAccountOptionRow(context, "Content settings"),
             buildAccountOptionRow(context, "Social"),
             buildAccountOptionRow(context, "Language"),
+
+
             SizedBox(
               height: 40,
             ),
@@ -71,13 +81,17 @@ class _SettingsState extends State<Settings> {
               children: [
                 Icon(
                   Icons.volume_up_outlined,
+
                   color: c,
+
                 ),
                 SizedBox(
                   width: 8,
                 ),
                 Text(
+
                   "Help & Support",
+
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ],
@@ -92,6 +106,7 @@ class _SettingsState extends State<Settings> {
             buildAccountOptionRow(context, "Contact us"),
             buildAccountOptionRow(context, "Terms & Conditions"),
             buildAccountOptionRow(context, "Privacy and security"),
+
             SizedBox(
               height: 50,
             ),
@@ -143,14 +158,18 @@ class _SettingsState extends State<Settings> {
                 title: Text(title),
                 content: Column(
                   mainAxisSize: MainAxisSize.min,
+
                   children: const [
+
                     Text("Option 1"),
                     Text("Option 2"),
                     Text("Option 3"),
                   ],
                 ),
                 actions: [
+
                   TextButton(
+
                       onPressed: () {
                         Navigator.of(context).pop();
                       },

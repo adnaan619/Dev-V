@@ -1,15 +1,19 @@
+
 import 'package:demo_cuticare/resources.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:demo_cuticare/sign_in.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 
+
 class SplashScreen extends StatefulWidget{
   const SplashScreen({Key? key}) : super(key: key);
+
 
   @override
   _SplashScreenState createState() => _SplashScreenState();
 }
+
 
 class _SplashScreenState extends State<SplashScreen>{
   @override
@@ -33,6 +37,7 @@ class _SplashScreenState extends State<SplashScreen>{
             children: <Widget>[
               Expanded(
                 flex: 2,
+
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
@@ -75,12 +80,15 @@ class _SplashScreenState extends State<SplashScreen>{
                     ),
 
                   ],
+
                 ),
               ),
               Expanded(flex: 1,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
+
                   children: const <Widget> [
+
                     Padding(
                       padding: EdgeInsets.only(top: 10.0),
                     ),
@@ -88,6 +96,7 @@ class _SplashScreenState extends State<SplashScreen>{
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 22.0,
+
                         ),
                     ),
                     Text("\n+DevV Projects+",

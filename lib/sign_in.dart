@@ -1,3 +1,4 @@
+
 import 'package:demo_cuticare/resources.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -13,6 +14,7 @@ class SignIn extends StatefulWidget {
 }
 
 class _SignInState extends State<SignIn> {
+
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
@@ -28,6 +30,7 @@ class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
 
+
     return Scaffold(
         resizeToAvoidBottomInset: false,
         // appBar: AppBar(
@@ -36,6 +39,7 @@ class _SignInState extends State<SignIn> {
         body: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+
               Stack(
                   children: [
                     Container(
@@ -266,6 +270,7 @@ class _SignInState extends State<SignIn> {
                       ),
                     ),
 
+
               SizedBox(height: 15.0),
               Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -276,12 +281,14 @@ class _SignInState extends State<SignIn> {
                     )),
                     SizedBox(width: 5.0),
                     InkWell(
+
                       onTap: (){
                         Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) =>   SignUp()),
                       );
                         },
+
                       child: Text("Register",
                         style: TextStyle(
                           color: c,
@@ -291,15 +298,18 @@ class _SignInState extends State<SignIn> {
                       ),
                     ),
                   ]),
+
             ]),
     );
   }
+
 
   void _togglePasswordView() {
     setState(() {
       _isHidden = !_isHidden;
     });
   }
+
 
   // login function
   void signIn(String email, String password) async {
@@ -317,5 +327,6 @@ class _SignInState extends State<SignIn> {
     }
   }
 }
+
 
 

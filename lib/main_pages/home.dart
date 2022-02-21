@@ -30,9 +30,11 @@ class _HomeState extends State<Home> {
       //         Profile()
       // );
     } on PlatformException catch (e) {
+
       if (kDebugMode) {
         print('Failed to pick image:  $e');
       }
+
     }
   }
 
@@ -42,6 +44,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
 
     return Scaffold(
+
       body: Center(
         child: InkWell(
           onTap: () {
@@ -63,6 +66,7 @@ class _HomeState extends State<Home> {
           ),
         ),
       ),
+
     );
   }
 }
