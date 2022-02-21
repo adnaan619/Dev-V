@@ -21,7 +21,7 @@ class _State extends State<ImageUpload> {
   late String path;
 
   Future getImageFromCamera() async {
-    var image = await ImagePicker().getImage(source: ImageSource.camera);
+    var image = await ImagePicker().pickImage(source: ImageSource.camera);
     if (image == null) {
       return null;
     }

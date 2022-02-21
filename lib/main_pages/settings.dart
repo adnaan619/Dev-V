@@ -96,7 +96,7 @@ class _SettingsState extends State<Settings> {
               height: 50,
             ),
             Center(
-              child: OutlineButton(
+              child: MaterialButton(
                 padding: EdgeInsets.symmetric(horizontal: 40),
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20)),
