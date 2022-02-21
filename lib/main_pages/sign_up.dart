@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import '../resources.dart';
@@ -257,7 +258,6 @@ class _SignUpState extends State<SignUp> {
                         style: TextStyle(color:Colors.white )),
                     ),
                     decoration: BoxDecoration( color: c , borderRadius: BorderRadius.circular(10.0)),
-
                   )
                 ],
               ),
@@ -301,7 +301,9 @@ class _SignUpState extends State<SignUp> {
             errorMessage = "An undefined Error happened.";
         }
         Fluttertoast.showToast(msg: errorMessage!);
-        print(error.code);
+        if (kDebugMode) {
+          print(error.code);
+        }
       }
     }
   }
