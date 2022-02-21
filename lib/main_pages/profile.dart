@@ -220,7 +220,7 @@ class _ProfileState extends State<Profile> {
   }
 
   Future getImageFromCamera() async {
-    var image = await ImagePicker().getImage(source: ImageSource.camera);
+    var image = await ImagePicker().pickImage(source: ImageSource.camera);
     if (image == null) {
       return null;
     }
@@ -229,12 +229,10 @@ class _ProfileState extends State<Profile> {
       path = image.path;
       output = null;
     });
-    // ignore: deprecated_member_use
   }
 
   Future getImageFromGallery() async {
-    // ignore: deprecated_member_use
-    var image = await ImagePicker().getImage(source: ImageSource.gallery);
+    var image = await ImagePicker().pickImage(source: ImageSource.gallery);
     if (image == null) {
       return null;
     }
