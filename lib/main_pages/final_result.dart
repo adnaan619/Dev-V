@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'home.dart';
 
 class FinalResult extends StatefulWidget {
   const FinalResult({Key? key}) : super(key: key);
