@@ -9,7 +9,7 @@ class Search extends StatelessWidget{
             width:  MediaQuery.of(context).size.width,
             child: GoogleMap(
               initialCameraPosition:
-                  CameraPosition(target: latlng(), zoom: 16.0),
+                  CameraPosition(target: LatLng(29.9792, 31.1342), zoom: 16.0),
               zoomGesturesEnabled: true,
             ),
           ),
