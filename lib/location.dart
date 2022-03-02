@@ -18,11 +18,14 @@ class MyApp extends StatelessWidget{
   Widget build(BuildContext context){
     return MultiProvider(
       providers: [
-      // FutureProvider(create: (context) => locatorService.getLocation()),
       FutureProvider(create: (context) => locatorService.getLocation()),
-      ProxyProvider<Position,Future<List<Place>>>(
-          update: (context,position,places){
-            return (position != null) ? placesService.getPlaces(position.latitude, position.longitude) : null;
+      FutureProvider(create: (context) {
+        ImageConfiguration configuration = createLocalImageConfiguration(context);
+        return BitmapDescriptor.fromAssetImage(configuration, 'assets/hospitalIcon.png');
+      }
+      ProxyProvider<Position,BitmapDescriptor,Future<List<Place>>>(
+          update: (context,position,icon,places){
+            return (position != null) ? placesService.getPlaces(position.latitude, position.longitude, icon) : null;
           },
         )
       ],
