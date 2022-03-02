@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget{
       child: MaterialApp(
         title: 'Location Page',
         theme: ThemeData(
-          primarySwatch: Colors.redAccent,
+          primarySwatch: Colors.blue,
         ),
         home: Search(),
       ),
@@ -45,33 +45,40 @@ class Search extends StatelessWidget{
       create: (context) => placesProvider,
       child: Scaffold(
         body: (currentPosition != null)
-            ? Column(
-              children: <Widget>[
-                Container(
-                  height: MediaQuery.of(context).size.height/3,
-                  width:  MediaQuery.of(context).size.width,
-                  child: GoogleMap(
-                    initialCameraPosition: CameraPosition(
-                        target: LatLng(currentPosition.latitude, currentPosition.longitude), zoom: 16.0),
-                    zoomGesturesEnabled: true,
-                  ),
-                ),
-                SizedBox(
-                  height: 10.0,
-                ),
-                Expanded(
-                  child:ListView.builder(
-                    itemCount: places.length,
-                    itemBuilder:(context, index){
-                      return Card(
-                        child: ListTile(
-                          title: Text(places[index].name),
+            ? Consumer<List<Place>>(
+                builder: (_, places, __) {
+                  return Column(
+                    children: <Widget>[
+                      Container(
+                        height: MediaQuery.of(context).size.height / 3,
+                        width: MediaQuery.of(context).size.width,
+                        child: GoogleMap(
+                          initialCameraPosition: CameraPosition(
+                              target: LatLng(
+                                  currentPosition.latitude,
+                                  currentPosition.longitude),
+                              zoom: 16.0),
+                          zoomGesturesEnabled: true,
                         ),
-                      );
-                  }),
-                )
-              ],
-            )
+                      ),
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Expanded(
+                        child: ListView.builder(
+                            itemCount: places.length,
+                            itemBuilder: (context, index) {
+                              return Card(
+                                child: ListTile(
+                                  title: Text(places[index].name),
+                                ),
+                              );
+                            }),
+                      )
+                    ],
+                  );
+                },
+              )
             : Center(
                 child: CircularProgressIndicator(),
             ),
