@@ -1,16 +1,15 @@
 import 'dart:io';
 import 'package:demo_cuticare/main_pages/profile.dart';
-import 'package:demo_cuticare/main_pages/sign_in_form.dart';
-import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:tflite/tflite.dart';
-import '../sign_in.dart';
 import 'camera.dart';
 import 'gallery.dart';
 
 class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
+
 
   @override
   State<Home> createState() => _HomeState();
@@ -31,11 +30,12 @@ class _HomeState extends State<Home> {
               Profile()
       );
     } on PlatformException catch (e) {
-      print('Failed to pick image:  $e');
+      if (kDebugMode) {
+        print('Failed to pick image:  $e');
+      }
 
     }
   }
-
 
 
   @override
@@ -47,8 +47,6 @@ class _HomeState extends State<Home> {
             crossAxisAlignment: CrossAxisAlignment.center,
    
             children: [
-
-
               InkWell(
                 onTap: () {
                   Navigator.push(
