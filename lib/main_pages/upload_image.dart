@@ -8,7 +8,6 @@ import 'package:image_picker/image_picker.dart';
 // import 'firebase_api.dart';
 import 'package:tflite/tflite.dart';
 
-import '../main.dart';
 import '../resources.dart';
 import 'home.dart';
 
