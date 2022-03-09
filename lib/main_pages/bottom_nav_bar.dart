@@ -1,13 +1,10 @@
-import 'package:demo_cuticare/main_pages/profile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../resources.dart';
 import 'home.dart';
 
-// void main() => runApp(MaterialApp(
-//     debugShowCheckedModeBanner: false,
-//     home: BottomNavBar()
-// ));
+void main() => runApp(MaterialApp(
+    home: BottomNavBar()
+));
 
 
 class BottomNavBar extends StatefulWidget {
@@ -24,24 +21,23 @@ Widget build(BuildContext context) {
     tabBar: CupertinoTabBar(
       items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(
+          icon: Icon(Icons.home),
+          activeIcon: Icon(Icons.home_outlined),
+        ),
+        BottomNavigationBarItem(
 
-          icon: Icon(Icons.home_outlined),
-          activeIcon: Icon(Icons.home),
+          icon: Icon(Icons.group_rounded),
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.location_on_outlined),
-          activeIcon: Icon(Icons.location_on),
+          icon: Icon(Icons.location_on),
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.assignment_outlined),
-          activeIcon: Icon(Icons.assignment),
+          icon: Icon(Icons.assignment),
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.person_outlined),
-          activeIcon: Icon(Icons.person),
+          icon: Icon(Icons.person_sharp),
         ),
       ],
-      activeColor: c
 
     ),
     tabBuilder: (context, index) {
@@ -67,13 +63,19 @@ Widget build(BuildContext context) {
         case 3:
           return CupertinoTabView(builder: (context) {
             return CupertinoPageScaffold(
-              child: Profile(),
+              child: Home(),
+            );
+          });
+        case 4:
+          return CupertinoTabView(builder: (context) {
+            return CupertinoPageScaffold(
+              child: Home(),
             );
           });
         default:
           return CupertinoTabView(builder: (context) {
-            return CupertinoPageScaffold(
-              child: Home(),
+          return CupertinoPageScaffold(
+            child: Home(),
           );
         });
       }

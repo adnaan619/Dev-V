@@ -30,10 +30,18 @@ class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //appBar: AppBar(
-      //title: Text('Login Page '),
-      //),
+        appBar: AppBar(
+            backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+            elevation: 1,
+            // leading: IconButton(
+            //   icon: Icon(
+            //     Icons.arrow_back,
+            //     color: c,
+            //   ),
+            //   onPressed: () {},
+            // ),
 
+        ),
       body: SingleChildScrollView(
 
         child: Form(
@@ -54,23 +62,16 @@ class _SignUpState extends State<SignUp> {
                   //SizedBox(height: 10.0),
                   //Image.asset("assets/google.jpg",height: 150,width:150 ,),
                   SizedBox(height: 10.0),
-                  Text('Please enter your details ',textAlign:TextAlign.left ,style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black , fontSize: 20.0),),
+                  Text('Please enter your details ',textAlign:TextAlign.left ,
+                    style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black , fontSize: 20.0)
+                  ),
 
                   Container(
                     padding: EdgeInsets.symmetric(horizontal:20),
                     margin: EdgeInsets.only(top: 10),
                     child: TextFormField(
                       controller: firstNameEditingController,
-                      validator: (value) {
-                        RegExp regex = RegExp(r'^.{3,}$');
-                        if (value!.isEmpty) {
-                          return ("First name cannot be empty!");
-                        }
-                        if (!regex.hasMatch(value)) {
-                          return ("Enter valid name! (Min. 3 characters)");
-                        }
-                        return null;
-                      },
+                      validator: SignUpValidator.validateFirstName,
                       textInputAction: TextInputAction.next,
                       decoration: InputDecoration(
                         enabledBorder:OutlineInputBorder(
@@ -92,12 +93,7 @@ class _SignUpState extends State<SignUp> {
                     margin: EdgeInsets.only(top: 10),
                     child: TextFormField(
                       controller: lastNameEditingController,
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return ("Last name cannot be empty!");
-                        }
-                        return null;
-                      },
+                      validator: SignUpValidator.validateLastName,
                       onSaved: (value) {
                         lastNameEditingController.text = value!;
                       },
@@ -124,17 +120,7 @@ class _SignUpState extends State<SignUp> {
                     margin: EdgeInsets.only(top: 10),
                     child: TextFormField(
                       controller: emailEditingController,
-                      validator: (value) {
-                        if(value!.isEmpty){
-                          return("Please enter your email!");
-                        }
-                        // reg expression for email validation
-                        if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
-                            .hasMatch(value)) {
-                          return ("Please Enter a valid email!");
-                        }
-                        return null;
-                      },
+                      validator: FormValidator.validateEmail,
                       onSaved: (value) {
                         firstNameEditingController.text = value!;
                       },
@@ -162,16 +148,7 @@ class _SignUpState extends State<SignUp> {
                     margin: EdgeInsets.only(top: 10),
                     child: TextFormField(
                       controller: passwordEditingController,
-                      validator: (value) {
-                        RegExp regex = RegExp(r'^.{6,}$');
-                        if (value!.isEmpty) {
-                          return ("Password is required for sign in");
-                        }
-                        if (!regex.hasMatch(value)) {
-                          return ("Enter Valid Password(Min. 6 Character)");
-                        }
-                        return null;
-                      },
+                      validator: FormValidator.validatePassword,
                       onSaved: (value) {
                         firstNameEditingController.text = value!;
                       },

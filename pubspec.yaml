@@ -38,16 +38,15 @@ dependencies:
   image_picker: ^0.8.4+7
   image: ^3.1.1
   meta: ^1.7.0
-  tflite: ^1.0.2
+  tflite_flutter: ^0.9.0
+  tflite: ^1.1.2
   firebase_storage: ^10.2.7
   firebase_core: ^1.12.0
   file_picker: ^4.3.3
   animated_text_kit: ^4.2.1
-
   firebase_auth: ^3.3.7
   cloud_firestore: ^3.1.8
   fluttertoast: ^8.0.8
-
 
 dev_dependencies:
   flutter_test:

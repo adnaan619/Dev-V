@@ -1,9 +1,13 @@
 import 'package:demo_cuticare/resources.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:provider/provider.dart';
+import 'google_sign_in_provider.dart';
 import 'main_pages/bottom_nav_bar.dart';
 import 'main_pages/sign_up.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+
+
 
 class SignIn extends StatefulWidget {
   const SignIn({Key? key}) : super(key: key);
@@ -30,7 +34,11 @@ class _SignInState extends State<SignIn> {
   Widget build(BuildContext context) {
 
 
-    return Scaffold(
+    return MaterialApp(
+        theme: ThemeData(
+        // canvasColor: b,
+    ),
+      home: Scaffold(
       resizeToAvoidBottomInset: false,
       // appBar: AppBar(
       //   backgroundColor: Colors.white
@@ -38,7 +46,6 @@ class _SignInState extends State<SignIn> {
       body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-
             Stack(
                 children: [
                   Container(
@@ -78,24 +85,6 @@ class _SignInState extends State<SignIn> {
                 child: Column(
                     children: [
                       TextFormField(
-                        autofocus: false,
-                        controller: emailController,
-                        keyboardType: TextInputType.emailAddress,
-                        validator: (value) {
-                          if(value!.isEmpty){
-                            return("Please enter your email!");
-                          }
-                          // reg expression for email validation
-                          if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
-                              .hasMatch(value)) {
-                            return ("Please Enter a valid email!");
-                          }
-                          return null;
-                        },
-                        onSaved: (value){
-                          emailController.text = value!;
-                        },
-                        textInputAction: TextInputAction.next,
                         decoration: InputDecoration(
                             labelText: "EMAIL",
                             labelStyle: TextStyle(
@@ -107,6 +96,14 @@ class _SignInState extends State<SignIn> {
                               borderSide: BorderSide(color: c),
                             )
                         ),
+                        autofocus: false,
+                        controller: emailController,
+                        keyboardType: TextInputType.emailAddress,
+                        validator: FormValidator.validateEmail,
+                          onSaved: (value){
+                            emailController.text = value!;
+                          },
+                        textInputAction: TextInputAction.next,
                       ),
 
                       SizedBox(height: 20.0),
@@ -114,17 +111,7 @@ class _SignInState extends State<SignIn> {
                       TextFormField(
                         autofocus: false,
                         controller: passwordController,
-
-                        validator: (value) {
-                          RegExp regex = RegExp(r'^.{6,}$');
-                          if (value!.isEmpty) {
-                            return ("Password is required for sign in");
-                          }
-                          if (!regex.hasMatch(value)) {
-                            return ("Enter Valid Password(Min. 6 Character)");
-                          }
-                          return null;
-                        },
+                        validator: FormValidator.validatePassword,
                         onSaved: (value){
                           passwordController.text = value!;
                         },
@@ -208,26 +195,32 @@ class _SignInState extends State<SignIn> {
                               color: Colors.transparent,
                               borderRadius: BorderRadius.circular(20.0)
                           ),
-                          child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: const [
-                                Center(
-                                  child: ImageIcon(
-                                      AssetImage(
-                                          "assets/google-icon.png")),
-                                ),
-                                SizedBox(width: 10.0),
-                                Center(
-                                  child: Text(
-                                    "Log in with Google",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontFamily: "Roboto"
+                          child: MaterialButton(
+                                  onPressed: () {
+                                    final provider = Provider.of<GoogleSignInProvider>(context, listen: false);
+                                    provider.googleLogin();
+                                  },
+                            child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: const [
+                                  Center(
+                                    child: ImageIcon(AssetImage(
+                                        "assets/google-icon.png")),
+                                  ),
+                                  SizedBox(width: 10.0),
+                                  Center(
+                                    child: Text(
+                                      "Log in with Google",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontFamily: "Roboto"
+                                      ),
                                     ),
                                   ),
-                                ),
-                                SizedBox(height: 10.0),
-                              ]),
+                                  SizedBox(height: 10.0),
+                                ]),
+                          ),
+
                         ),
                       ),
                       SizedBox(height: 10.0),
@@ -299,6 +292,7 @@ class _SignInState extends State<SignIn> {
                 ]),
 
           ]),
+      ),
     );
   }
 
@@ -326,6 +320,4 @@ class _SignInState extends State<SignIn> {
     }
   }
 }
-
-
 

@@ -55,11 +55,11 @@ android {
         versionName flutterVersionName
     }
 
+
     aaptOptions {
         noCompress 'tflite'
         noCompress 'lite'
     }
-
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.
@@ -79,3 +79,4 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:29.1.0')
 
 }
+
