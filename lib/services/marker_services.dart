@@ -1,4 +1,5 @@
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:demo_cuticare/models/place.dart';
 
 class MarkerService{
 
@@ -11,7 +12,7 @@ class MarkerService{
         draggable: false,
         icon: place.icon,
         infoWindow: InfoWindow(title: place.name, snippet: place.vicinity),
-        position: LatLng(place.geometry.location.lat, place.gepmetry.location.lng)
+        position: LatLng(place.geometry.location.lat, place.geometry.location.lng)
       );
 
       markers.add(marker);
