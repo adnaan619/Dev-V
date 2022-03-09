@@ -14,7 +14,7 @@ packages:
       name: archive
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.1.11"
+    version: "3.2.1"
   async:
     dependency: transitive
     description:
@@ -50,6 +50,28 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.0"
+
+  cloud_firestore:
+    dependency: "direct main"
+    description:
+      name: cloud_firestore
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.1.8"
+  cloud_firestore_platform_interface:
+    dependency: transitive
+    description:
+      name: cloud_firestore_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "5.4.13"
+  cloud_firestore_web:
+    dependency: transitive
+    description:
+      name: cloud_firestore_web
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.6.8"
   collection:
     dependency: transitive
     description:
@@ -105,7 +127,30 @@ packages:
       name: file_picker
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.3.3"
+
+    version: "4.4.0"
+  firebase_auth:
+    dependency: "direct main"
+    description:
+      name: firebase_auth
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.3.7"
+  firebase_auth_platform_interface:
+    dependency: transitive
+    description:
+      name: firebase_auth_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "6.1.11"
+  firebase_auth_web:
+    dependency: transitive
+    description:
+      name: firebase_auth_web
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.3.7"
+
   firebase_core:
     dependency: "direct main"
     description:
@@ -177,6 +222,15 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+
+  fluttertoast:
+    dependency: "direct main"
+    description:
+      name: fluttertoast
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "8.0.8"
+
   http:
     dependency: transitive
     description:
@@ -197,28 +251,39 @@ packages:
       name: image
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.1.1"
+    version: "3.1.3"
+
   image_picker:
     dependency: "direct main"
     description:
       name: image_picker
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.8.4+7"
+    version: "0.8.4+9"
+
   image_picker_for_web:
     dependency: transitive
     description:
       name: image_picker_for_web
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.5"
+    version: "2.1.6"
+
   image_picker_platform_interface:
     dependency: transitive
     description:
       name: image_picker_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.4.3"
+    version: "2.4.4"
+  intl:
+    dependency: transitive
+    description:
+      name: intl
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.17.0"
+
   js:
     dependency: transitive
     description:
@@ -261,6 +326,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.0"
+
   pedantic:
     dependency: transitive
     description:
@@ -268,6 +334,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.11.1"
+
   petitparser:
     dependency: transitive
     description:
@@ -282,6 +349,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.2"
+
   quiver:
     dependency: transitive
     description:
@@ -289,6 +357,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.1+1"
+
   sky_engine:
     dependency: transitive
     description: flutter
@@ -343,6 +412,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.2"
+
   tflite_flutter:
     dependency: "direct main"
     description:
@@ -350,6 +420,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.9.0"
+
   typed_data:
     dependency: transitive
     description:

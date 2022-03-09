@@ -1,4 +1,4 @@
-# demo_cuticare
+# CutiCare
 
 A new Flutter project.
 

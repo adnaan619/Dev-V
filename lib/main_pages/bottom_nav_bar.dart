@@ -6,6 +6,7 @@ void main() => runApp(MaterialApp(
     home: BottomNavBar()
 ));
 
+
 class BottomNavBar extends StatefulWidget {
 const BottomNavBar({Key? key}) : super(key: key);
 
@@ -37,6 +38,7 @@ Widget build(BuildContext context) {
           icon: Icon(Icons.person_sharp),
         ),
       ],
+
     ),
     tabBuilder: (context, index) {
       switch (index) {

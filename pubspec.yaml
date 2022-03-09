@@ -44,7 +44,9 @@ dependencies:
   firebase_core: ^1.12.0
   file_picker: ^4.3.3
   animated_text_kit: ^4.2.1
-
+  firebase_auth: ^3.3.7
+  cloud_firestore: ^3.1.8
+  fluttertoast: ^8.0.8
 
 dev_dependencies:
   flutter_test:
@@ -71,7 +73,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/monkey.jpg
+    - assets/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
