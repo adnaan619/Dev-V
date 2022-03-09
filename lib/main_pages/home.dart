@@ -63,10 +63,10 @@ class _HomeState extends State<Home> {
                       ])
               ),
               SizedBox(width:30.0),
-              Container(
-                child: Text("Rusini Thara Gunarathne"),
-
-              ),
+              // Container(
+              //   child: Text("Rusini Thara Gunarathne"),
+              //
+              // ),
             ]),
 
             Column(
