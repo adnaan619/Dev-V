@@ -43,7 +43,7 @@ class _SignInState extends State<SignIn> {
       // appBar: AppBar(
       //   backgroundColor: Colors.white
       // ),
-      body: Column(
+        body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Stack(

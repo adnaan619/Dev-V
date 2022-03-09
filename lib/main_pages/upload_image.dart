@@ -132,10 +132,6 @@ class _State extends State<ImageUpload> {
                 height: 10,
               ),
               Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Theme.of(context).primaryColor,
-                  ),
                   padding: EdgeInsets.all(10),
                   margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
                   child: MaterialButton(
