@@ -1,8 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 
 import '../resources.dart';
+import '../sign_in.dart';
 
 class Settings extends StatefulWidget {
   const Settings({Key? key}) : super(key: key);
@@ -115,7 +118,15 @@ class _SettingsState extends State<Settings> {
                 padding: EdgeInsets.symmetric(horizontal: 40),
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20)),
-                onPressed: () {},
+                onPressed: () {
+                  FirebaseAuth.instance.signOut().then((val) {
+                    Navigator.of(context, rootNavigator: true).pushReplacement(MaterialPageRoute(builder: (context) => SignIn()));
+                  }).catchError((e) {
+                    if (kDebugMode) {
+                      print(e);
+                    }
+                  });
+                },
                 child: Text("SIGN OUT",
                     style: TextStyle(
                         fontSize: 16, letterSpacing: 2.2, color: Colors.black)),

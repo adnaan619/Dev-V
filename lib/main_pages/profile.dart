@@ -3,7 +3,13 @@ import 'package:demo_cuticare/main_pages/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import '../resources.dart';
+import '../sign_in.dart';
 
+
+void main() {
+  runApp(MaterialApp(
+  ));
+}
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -13,12 +19,63 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
+  var profilePicUrl =
+      'assets/avatar.png';
   bool showPassword = false;
-
   File? imageURI;
   List? output;
   late String path;
   final picker = ImagePicker();
+  bool isLoading = false;
+
+
+
+ // UserManagement userManagement = new UserManagement();
+
+
+
+  // @override
+  // void initState() {
+  //   // TODO: implement initState
+  //   super.initState();
+  //   FirebaseAuth.instance.currentUser!.then((user) {
+  //     setState(() {
+  //       profilePicUrl = user.photoUrl;
+  //     });
+  //   }).catchError((e) {
+  //     if (kDebugMode) {
+  //       print(e);
+  //     }
+  //   });
+  // }
+
+
+
+  // Future uploadImage() async {
+  //   var randomno = Random(25);
+  //   final Reference firebaseStorageRef = FirebaseStorage.instance
+  //       .ref()
+  //       .child('profilepics/${randomno.nextInt(5000).toString()}.jpg');
+  //   UploadTask task = firebaseStorageRef.putFile(imageURI!);
+  //
+  //   task.future.then((value) {
+  //     setState(() {
+  //       userManagement
+  //           .updateProfilePic(value.downloadUrl.toString())
+  //           .then((val) {
+  //         setState(() {
+  //           profilePicUrl = value.downloadUrl.toString();
+  //           isLoading = false;
+  //         });
+  //       });
+  //     });
+  //   }).catchError((e) {
+  //     if (kDebugMode) {
+  //       print(e);
+  //     }
+  //   });
+  // }
+
 
   @override
   Widget build(BuildContext context) {
@@ -32,9 +89,7 @@ class _ProfileState extends State<Profile> {
             leading: IconButton(
               icon: Icon(
                 Icons.arrow_back,
-
                 color: c,
-
               ),
               onPressed: () {},
             ),
@@ -42,9 +97,7 @@ class _ProfileState extends State<Profile> {
               IconButton(
                 icon: Icon(
                   Icons.settings,
-
                   color: c,
-
                 ),
                 onPressed: () {
                   Navigator.of(context).push(MaterialPageRoute(
@@ -70,16 +123,18 @@ class _ProfileState extends State<Profile> {
                   child: Stack(
                     children: [
                       Container(
-                             // imageURI != null
-                             //     ? Image.file(
-                             //    imageURI!,
-                             //    width: 0.99,
-                             //    height: 240,
-                             //    fit: BoxFit.fill,
-                             //  )
-
-
-                      ),
+                          width: 150.0,
+                          height: 150.0,
+                          decoration: BoxDecoration(
+                              color: Colors.red,
+                              image: DecorationImage(
+                                  image: NetworkImage(profilePicUrl),
+                                  fit: BoxFit.cover),
+                              borderRadius: BorderRadius.all(Radius.circular(75.0)),
+                              boxShadow: const [
+                                BoxShadow(blurRadius: 7.0, color: Colors.black)
+                              ])),
+                      SizedBox(height: 20.0),
                       Positioned(
                           bottom: 0,
                           right: 0,
@@ -119,7 +174,7 @@ class _ProfileState extends State<Profile> {
                 buildTextField("Password", "Dor Alex",true),
                 buildTextField("Location", "Dor Alex",false),
                 SizedBox(
-                  height: 35,
+                  height: 5,
                 ),
                 Row(
                   children: [

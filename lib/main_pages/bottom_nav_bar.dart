@@ -55,7 +55,7 @@ Widget build(BuildContext context) {
         case 1:
           return CupertinoTabView(builder: (context) {
             return CupertinoPageScaffold(
-              child: Home(),
+              child: Text("1"),
             );
           });
         case 2:

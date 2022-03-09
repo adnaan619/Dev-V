@@ -8,6 +8,17 @@ import 'package:image_picker/image_picker.dart';
 // import 'firebase_api.dart';
 import 'package:tflite/tflite.dart';
 
+import '../main.dart';
+import '../resources.dart';
+import 'home.dart';
+
+void main() {
+  runApp(MaterialApp(
+     home: ImageUpload()
+  ));
+}
+
+
 class ImageUpload extends StatefulWidget {
   const ImageUpload({Key? key}) : super(key: key);
 
@@ -49,14 +60,12 @@ class _State extends State<ImageUpload> {
   Future classifyImage() async {
     output = null;
     await Tflite.loadModel(
-        model: "assets/model_unquant.tflite", labels: "assets/labels.txt");
+        model: "assets/skin_quant.tflite", labels: "assets/labels.txt");
     var result = await Tflite.runModelOnImage(
-        path: path,   // required
-        imageMean: 127.5,   // defaults to 117.0
-        imageStd: 127.5,  // defaults to 1.0
+        path: path, // required
         numResults: 4,    // defaults to 5
-        threshold: 0.5,   // defaults to 0.1
-        asynch: true
+        threshold: 0.5, // defaults to 0.1
+        asynch: true,
     );
 
     setState(() {
@@ -66,14 +75,29 @@ class _State extends State<ImageUpload> {
 
   @override
   Widget build(BuildContext context) {
-    final double genislik = MediaQuery.of(context).size.width;
-    final double yukseklik = MediaQuery.of(context).size.height;
+    final double width = MediaQuery.of(context).size.width;
+    final double height = MediaQuery.of(context).size.height;
     return Scaffold(
+      appBar: AppBar(
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+
+          elevation: 1,
+          leading: IconButton(
+            icon: Icon(
+              Icons.arrow_back,
+              color: c,
+            ),
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) => Home()));
+            },
+          ),
+      ),
       backgroundColor: Theme.of(context).primaryColorLight,
       body: ListView(children: [
         Container(
           decoration: BoxDecoration(),
-          padding: EdgeInsets.only(top: yukseklik * 0.01),
+          padding: EdgeInsets.only(top: height * 0.01),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -81,7 +105,7 @@ class _State extends State<ImageUpload> {
                   ? Text(" Choose Picture ", style: TextStyle(fontSize: 21))
                   : Image.file(
                 imageURI!,
-                width: genislik * 0.99,
+                width: width * 0.99,
                 height: 240,
                 fit: BoxFit.fill,
               ),
