@@ -7,7 +7,7 @@ class Place{
   final int userRatingCount;
   final String vicinity;
   final Geometry geometry;
-  final BitmapDescriptor icon,
+  final BitmapDescriptor icon;
 
   Place({this.geometry, this.name, this.rating, this.userRatingCount, this.vicinity, this.icon});
 
