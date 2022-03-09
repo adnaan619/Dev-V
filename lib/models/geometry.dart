@@ -1,10 +1,10 @@
 import 'package:demo_cuticare/models/locations1.dart';
 
 class Geometry{
-  final Location location;
+  final Location location1;
 
-  Geometry({this.location});
+  Geometry({this.location1});
 
   Geometry.fromJson(Map<dynamic,dynamic> parsedJson)
-      :location = Location.fromJson(parsedJson['location']);
+      :location1 = Location.fromJson(parsedJson['location']);
 }

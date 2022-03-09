@@ -13,9 +13,10 @@ class Place{
 
   Place.fromJson(Map<dynamic, dynamic> parsedJson, BitmapDescriptor icon)
       :name = parsedJson['name'],
-        rating = (parsedJson['rating'] != null) ? parsedJson['rating'].toDouble() : null,
-        userRatingCount = (parsedJson['user_rating_count'] != null) ? parsedJson['user_rating_total'] : null,
+        rating = (parsedJson['rating'] !=null) ? parsedJson['rating'].toDouble() : null,
+        userRatingCount = (parsedJson['user_ratings_total'] != null) ? parsedJson['user_ratings_total'] : null,
         vicinity = parsedJson['vicinity'],
         geometry = Geometry.fromJson(parsedJson['geometry']),
-        icon = icon;
+        icon=icon;
+
 }

@@ -1,4 +1,4 @@
-import 'package:google_maps_flutter/google_maps/flutter.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:demo_cuticare/models/place.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
