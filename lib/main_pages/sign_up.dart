@@ -62,13 +62,7 @@ class _SignUpState extends State<SignUp> {
                     child: TextFormField(
                       controller: firstNameEditingController,
                       validator: (value) {
-                        RegExp regex = RegExp(r'^.{3,}$');
-                        if (value!.isEmpty) {
-                          return ("First name cannot be empty!");
-                        }
-                        if (!regex.hasMatch(value)) {
-                          return ("Enter valid name! (Min. 3 characters)");
-                        }
+                        SignUpValidator.validateFirstName(value);
                         return null;
                       },
                       textInputAction: TextInputAction.next,
@@ -93,10 +87,7 @@ class _SignUpState extends State<SignUp> {
                     child: TextFormField(
                       controller: lastNameEditingController,
                       validator: (value) {
-                        if (value!.isEmpty) {
-                          return ("Last name cannot be empty!");
-                        }
-                        return null;
+                        SignUpValidator.validateLastName(value);
                       },
                       onSaved: (value) {
                         lastNameEditingController.text = value!;
@@ -125,14 +116,7 @@ class _SignUpState extends State<SignUp> {
                     child: TextFormField(
                       controller: emailEditingController,
                       validator: (value) {
-                        if(value!.isEmpty){
-                          return("Please enter your email!");
-                        }
-                        // reg expression for email validation
-                        if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
-                            .hasMatch(value)) {
-                          return ("Please Enter a valid email!");
-                        }
+                        FormValidator.validateEmail(value);
                         return null;
                       },
                       onSaved: (value) {
@@ -163,13 +147,7 @@ class _SignUpState extends State<SignUp> {
                     child: TextFormField(
                       controller: passwordEditingController,
                       validator: (value) {
-                        RegExp regex = RegExp(r'^.{6,}$');
-                        if (value!.isEmpty) {
-                          return ("Password is required for sign in");
-                        }
-                        if (!regex.hasMatch(value)) {
-                          return ("Enter Valid Password(Min. 6 Character)");
-                        }
+                        FormValidator.validatePassword(value);
                         return null;
                       },
                       onSaved: (value) {

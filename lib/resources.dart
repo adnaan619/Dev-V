@@ -32,20 +32,21 @@ class FormValidator {
 }
 
 class SignUpValidator {
-  static String validateFirstName(String? firstName) {
-    return firstName != null
-        ? firstName.isEmpty
-        ? "First name cannot be empty!"
-        : RegExp(r'^.{3,}$')
-        .hasMatch(firstName)
-        ? ""
-        : "Enter valid name! (Min. 3 characters)"
-        : "First name cannot be empty!";
+  static String? validateFirstName(String? firstName) {
+    RegExp regex = RegExp(r'^.{3,}$');
+    if (firstName!.isEmpty) {
+      return ("First name cannot be empty!");
+    }
+    if (!regex.hasMatch(firstName)) {
+      return ("Enter valid name! (Min. 3 characters)");
+    }
+    return null;
   }
 
-  static String validateLastName(String? lastName) {
-    return lastName!.isEmpty
-        ? "Last name cannot be empty!"
-        : "";
+  static String? validateLastName(String? lastName) {
+    if (lastName!.isEmpty) {
+      return ("Last name cannot be empty!");
+    }
+    return null;
   }
 }
