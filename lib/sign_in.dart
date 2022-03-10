@@ -82,14 +82,7 @@ class _SignInState extends State<SignIn> {
                         controller: emailController,
                         keyboardType: TextInputType.emailAddress,
                         validator: (value) {
-                          if(value!.isEmpty){
-                            return("Please enter your email!");
-                          }
-                          // reg expression for email validation
-                          if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
-                              .hasMatch(value)) {
-                            return ("Please Enter a valid email!");
-                          }
+                          FormValidator.validateEmail(value);
                           return null;
                         },
                         onSaved: (value){
@@ -114,15 +107,8 @@ class _SignInState extends State<SignIn> {
                       TextFormField(
                         autofocus: false,
                         controller: passwordController,
-
                         validator: (value) {
-                          RegExp regex = RegExp(r'^.{6,}$');
-                          if (value!.isEmpty) {
-                            return ("Password is required for sign in");
-                          }
-                          if (!regex.hasMatch(value)) {
-                            return ("Enter Valid Password(Min. 6 Character)");
-                          }
+                          FormValidator.validatePassword(value);
                           return null;
                         },
                         onSaved: (value){
@@ -309,7 +295,6 @@ class _SignInState extends State<SignIn> {
     });
   }
 
-
   // login function
   void signIn(String email, String password) async {
     if (_formKey.currentState!.validate()) {
@@ -326,4 +311,3 @@ class _SignInState extends State<SignIn> {
     }
   }
 }
-

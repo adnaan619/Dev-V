@@ -4,25 +4,30 @@ Color c = const Color(0xFFFF2943);
 Color b = const Color(0x4A040404);
 
 class FormValidator {
-  static String validateEmail(String? email) {
-    return email != null
-        ? email.isEmpty
-        ? "Please enter your email"
-        : RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-        .hasMatch(email)
-        ? ""
-        : "Please enter a valid email"
-        : "Please enter your email";
+  static String? validateEmail(String? email) {
+    if(email!.isEmpty){
+      return("Please enter your email!");
+    }
+    // reg expression for email validation
+    if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
+        .hasMatch(email)) {
+      return ("Please enter a valid email!");
+    }
+    return null;
+
   }
 
   static String? validatePassword(String? password) {
-    return password != null
-        ? password.isEmpty
-        ? "Password is required for sign in"
-        : password.length < 6
-        ? "Password must be at least 6 characters"
-        : ""
-        : "Password is required for sign in";
+    if(password!= null){
+      RegExp regex = RegExp(r'^.{6,}$');
+      if (password.isEmpty) {
+        return ("Password is required for sign in!");
+      }
+      else if (!regex.hasMatch(password)) {
+        return ("Password must be at least 6 characters!");
+      }
+    }
+    return null;
   }
 }
 
