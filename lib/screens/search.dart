@@ -14,7 +14,7 @@ class Search extends StatelessWidget {
     final currentPosition = Provider.of<Position>(context);
     final placesProvider = Provider.of<Future<List<Place>>>(context);
     final geoService = GeoLocatorService();
-    final markerService = MarkerService();
+    //final markerService = MarkerService();
 
     return FutureProvider(
       create: (context) => placesProvider,
@@ -22,7 +22,7 @@ class Search extends StatelessWidget {
         body: (currentPosition != null)
             ? Consumer<List<Place>>(
           builder: (_, places, __) {
-            var markers = (places != null) ? markerService.getMarkers(places) : List<Marker>();
+            //var markers = (places != null) ? markerService.getMarkers(places) : List<Marker>();
             return (places != null)
                 ? Column(
               children: <Widget>[
@@ -35,7 +35,7 @@ class Search extends StatelessWidget {
                             currentPosition.longitude),
                         zoom: 16.0),
                     zoomGesturesEnabled: true,
-                    markers: Set<Marker>.of(markers),
+                    //markers: Set<Marker>.of(markers),
                   ),
                 ),
                 SizedBox(

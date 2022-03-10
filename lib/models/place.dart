@@ -2,12 +2,12 @@ import 'package:demo_cuticare/models/geometry.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class Place{
-  final String name;
-  final double rating;
-  final int userRatingCount;
-  final String vicinity;
-  final Geometry geometry;
-  final BitmapDescriptor icon;
+  final name;
+  final rating;
+  final userRatingCount;
+  final vicinity;
+  final geometry;
+  final icon;
 
   Place({this.geometry, this.name, this.rating, this.userRatingCount, this.vicinity, this.icon});
 
