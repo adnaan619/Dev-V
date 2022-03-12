@@ -7,6 +7,8 @@ void main() => runApp(MaterialApp(
 ));
 
 class TermsAndConditions extends StatefulWidget{
+  const TermsAndConditions({Key? key}) : super(key: key);
+
   @override
   _TermsAndConditionsState createState() => _TermsAndConditionsState();
 }
@@ -18,7 +20,7 @@ class _TermsAndConditionsState extends State<TermsAndConditions>{
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
-        child: Container(
+        child: SizedBox(
           height: size.height,
           width: size.width,
           child: Column(
@@ -204,7 +206,7 @@ class TermsButton extends StatelessWidget{
             color: isAccepted ? Colors.redAccent : Colors.white,
           ),
           child: Text(
-            "$title",
+            title,
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: size.height * 0.023,

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../resources.dart';
+import '../sign_in.dart';
 
 class Settings extends StatefulWidget {
   const Settings({Key? key}) : super(key: key);
@@ -44,17 +45,13 @@ class _SettingsState extends State<Settings> {
               children: [
                 Icon(
                   Icons.person,
-
                   color: c,
-
                 ),
                 SizedBox(
                   width: 8,
                 ),
                 Text(
-
                   "My CutiCare",
-
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ],
@@ -70,8 +67,6 @@ class _SettingsState extends State<Settings> {
             buildAccountOptionRow(context, "Content settings"),
             buildAccountOptionRow(context, "Social"),
             buildAccountOptionRow(context, "Language"),
-
-
             SizedBox(
               height: 40,
             ),
@@ -87,9 +82,7 @@ class _SettingsState extends State<Settings> {
                   width: 8,
                 ),
                 Text(
-
                   "Help & Support",
-
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ],
@@ -113,7 +106,10 @@ class _SettingsState extends State<Settings> {
                 padding: EdgeInsets.symmetric(horizontal: 40),
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20)),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context, rootNavigator: true)
+                      .pushReplacement(MaterialPageRoute(builder: (context) => SignIn()));
+                },
                 child: Text("SIGN OUT",
                     style: TextStyle(
                         fontSize: 16, letterSpacing: 2.2, color: Colors.black)),
@@ -156,18 +152,14 @@ class _SettingsState extends State<Settings> {
                 title: Text(title),
                 content: Column(
                   mainAxisSize: MainAxisSize.min,
-
                   children: const [
-
                     Text("Option 1"),
                     Text("Option 2"),
                     Text("Option 3"),
                   ],
                 ),
                 actions: [
-
                   TextButton(
-
                       onPressed: () {
                         Navigator.of(context).pop();
                       },

@@ -1,3 +1,4 @@
+import 'package:demo_cuticare/main_pages/profile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'home.dart';
@@ -32,9 +33,6 @@ Widget build(BuildContext context) {
           icon: Icon(Icons.location_on),
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.assignment),
-        ),
-        BottomNavigationBarItem(
           icon: Icon(Icons.person_sharp),
         ),
       ],
@@ -63,13 +61,7 @@ Widget build(BuildContext context) {
         case 3:
           return CupertinoTabView(builder: (context) {
             return CupertinoPageScaffold(
-              child: Home(),
-            );
-          });
-        case 4:
-          return CupertinoTabView(builder: (context) {
-            return CupertinoPageScaffold(
-              child: Home(),
+              child: Profile(),
             );
           });
         default:
