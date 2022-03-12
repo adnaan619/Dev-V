@@ -1,4 +1,5 @@
 import 'package:demo_cuticare/resources.dart';
+import 'package:demo_cuticare/sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -26,20 +27,53 @@ class _ForgotPasswordState extends State<ForgotPassword> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        elevation: 1,
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back,
+            color: c,
+          ),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => SignIn()),
+            );
+          },
+        ),
       ),
       body: Padding(
         padding: EdgeInsets.all(16),
         child: Form(
           key: formKey,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                "Enter your email to reset your password.",
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 24),
-              ),
+              Stack(
+                  children: [
+                    Container(
+                      padding: EdgeInsets.fromLTRB(15.0, 60.0, 0.0, 0.0),
+                      child: Text("Forgot",
+                          style: TextStyle(
+                              fontSize:70.0, fontWeight: FontWeight.bold)
+                      ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.fromLTRB(15.0, 120.0, 0.0, 0.0),
+                      child: Text("Password",
+                          style: TextStyle(
+                              fontSize:70.0, fontWeight: FontWeight.bold)
+                      ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.fromLTRB(330.0, 120.0, 100.0, 0.0),
+                      child: Text("?",
+                          style: TextStyle(
+                              fontSize:70.0, fontWeight: FontWeight.bold, color: c)
+                      ),
+                    ),
+                  ]),
               SizedBox(height: 20),
               TextFormField(
                 controller: emailController,
@@ -52,17 +86,26 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                 }
               ),
               SizedBox(height: 20),
-              ElevatedButton.icon(
-                style: ElevatedButton.styleFrom(
-                  minimumSize: Size.fromHeight(50),
+              Material(
+                borderRadius: BorderRadius.circular(20.0),
+                color: c,
+                elevation: 7.0,
+                child: MaterialButton(
+                  onPressed: (){
+                    resetPassword();
+                  },
+                  child: Center(
+                    child: Text(
+                      "Reset Password",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: "Roboto"
+                  ),
                 ),
-                icon: Icon(Icons.email_outlined),
-                label: Text(
-                  "Reset Password",
-                    style: TextStyle(fontSize: 24),
-                ),
-                onPressed: () { resetPassword(); },
               ),
+            ),
+          ),
             ],
           )
         )

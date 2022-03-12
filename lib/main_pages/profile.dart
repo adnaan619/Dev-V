@@ -26,7 +26,6 @@ class _ProfileState extends State<Profile> {
 
         appBar: AppBar(
             backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-
             elevation: 1,
             leading: IconButton(
               icon: Icon(
