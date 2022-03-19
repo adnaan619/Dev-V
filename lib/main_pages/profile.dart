@@ -1,5 +1,8 @@
 import 'dart:io';
-import 'package:demo_cuticare/main_pages/settings.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:demo_cuticare/main_pages/app_settings.dart';
+import 'package:demo_cuticare/sign_up_model/user_model.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import '../resources.dart';
@@ -13,40 +16,57 @@ class Profile extends StatefulWidget {
 
 class _ProfileState extends State<Profile> {
   bool showPassword = false;
-
+  var profilePicUrl = "https://drive.google.com/file/d/1YSs58WxxIMqAYjQEKlJQi5VFwAT0mUOO/view?usp=sharing";
   File? imageURI;
   List? output;
   late String path;
   final picker = ImagePicker();
+  User? user = FirebaseAuth.instance.currentUser;
+  UserModel loggedInUser = UserModel();
+
+  @override
+  void initState() {
+    super.initState();
+    FirebaseFirestore.instance
+    .collection("users")
+    .doc(user!.uid)
+    .get()
+    .then((value) {
+      this.loggedInUser = UserModel.fromMap(value.data());
+      setState(() {});
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
 
         appBar: AppBar(
-            backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+            backgroundColor: Theme
+                .of(context)
+                .scaffoldBackgroundColor,
             elevation: 1,
-            leading: IconButton(
-              icon: Icon(
-                Icons.arrow_back,
-
-                color: c,
-
-              ),
-              onPressed: () {},
-            ),
+            // leading: IconButton(
+            //   icon: Icon(
+            //     Icons.arrow_back,
+            //     color: c,
+            //   ),
+            //   onPressed: () {
+            //     Navigator.push(
+            //       context,
+            //       MaterialPageRoute(builder: (context) => ForgotPassword()),
+            //     );
+            //   },
+            // ),
             actions: [
               IconButton(
                 icon: Icon(
                   Icons.settings,
-
                   color: c,
-
                 ),
                 onPressed: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                      builder: (BuildContext context) => Settings()));
+                      builder: (BuildContext context) => AppSettings()));
                 },
               ),
             ]
@@ -61,49 +81,57 @@ class _ProfileState extends State<Profile> {
               children: [
                 Text(
                   "Edit Profile",
-                  style: TextStyle(fontFamily: 'Roboto',fontSize: 25, fontWeight: FontWeight.w500),
+                  style: TextStyle(fontFamily: 'Roboto',
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 15),
                 Center(
                   child: Stack(
                     children: [
                       Container(
-                             // imageURI != null
-                             //     ? Image.file(
-                             //    imageURI!,
-                             //    width: 0.99,
-                             //    height: 240,
-                             //    fit: BoxFit.fill,
-                             //  )
-
-
+                          width: 150.0,
+                          height: 150.0,
+                          decoration: BoxDecoration(
+                              color: Colors.red,
+                              image: DecorationImage(
+                                  image: NetworkImage(profilePicUrl),
+                                  fit: BoxFit.cover),
+                              borderRadius: BorderRadius.all(
+                                  Radius.circular(75.0)),
+                              boxShadow: const [
+                                BoxShadow(blurRadius: 7.0, color: Colors.black)
+                              ])
                       ),
+                      SizedBox(height: 20.0),
                       Positioned(
-                          bottom: 0,
-                          right: 0,
-                          child: Container(
+                        bottom: 0,
+                        right: 0,
+                        child: Container(
 
-                            // padding: EdgeInsets.all(0.1),
+                          // padding: EdgeInsets.all(0.1),
 
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              border: Border.all(
-                                width:4,
-                                color: Theme.of(context).scaffoldBackgroundColor,
-                              ),
-
-                              color: c,
-
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                              width: 4,
+                              color: Theme
+                                  .of(context)
+                                  .scaffoldBackgroundColor,
                             ),
-                            child: IconButton(
-                              icon: Icon(Icons.edit),
-                              color: Colors.white,
-                              onPressed: () {
-                                _askedToLead();
-                              },
-                            ),
+
+                            color: c,
 
                           ),
+                          child: IconButton(
+                            icon: Icon(Icons.edit),
+                            color: Colors.white,
+                            onPressed: () {
+                              _askedToLead();
+                            },
+                          ),
+
+                        ),
                       )
 
                     ],
@@ -112,13 +140,26 @@ class _ProfileState extends State<Profile> {
                 SizedBox(
                   height: 35,
                 ),
-                buildTextField("Full Name", "Dor Alex",false),
-                buildTextField("E-mail", "Dor Alex",false),
-                buildTextField("Password", "Dor Alex",true),
-                buildTextField("Location", "Dor Alex",false),
-                SizedBox(
-                  height: 35,
-                ),
+                Text("Full name", style: TextStyle(fontSize:25,fontWeight: FontWeight.bold)),
+                SizedBox(height:5),
+                Text("${loggedInUser.firstName} ${loggedInUser.lastName}",
+                    style: TextStyle(fontSize:15,fontWeight: FontWeight.bold)),
+
+                SizedBox(height:15),
+
+                Text("E-mail", style: TextStyle(fontSize:25,fontWeight: FontWeight.bold)),
+                SizedBox(height:5),
+                Text("${loggedInUser.email}",
+                    style: TextStyle(fontSize:15,fontWeight: FontWeight.bold)),
+
+                SizedBox(height:15),
+
+                Text("Address", style: TextStyle(fontSize:25,fontWeight: FontWeight.bold)),
+                SizedBox(height:5),
+                Text("${loggedInUser.address}",
+                    style: TextStyle(fontSize:15,fontWeight: FontWeight.bold)),
+                SizedBox(height: 35),
+
                 Row(
                   children: [
 
@@ -128,8 +169,7 @@ class _ProfileState extends State<Profile> {
                       // shape: RoundedRectangleBorder(
                       //     borderRadius: BorderRadius.circular(20)),
 
-
-                      onPressed: (){},
+                      onPressed: () {},
                       child: Text("Cancel",
                           style: TextStyle(fontSize: 14,
                               letterSpacing: 2.2,
@@ -138,7 +178,9 @@ class _ProfileState extends State<Profile> {
 
                     SizedBox(width: 100),
                     ElevatedButton(
-                        onPressed: (){},
+                        onPressed: () {
+
+                        },
                         style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all<Color>(c),
                         ),
@@ -164,35 +206,6 @@ class _ProfileState extends State<Profile> {
     );
   }
 
-  Widget buildTextField(String labelText, String placeholder, bool isPasswordTextField){
-    return Padding(
-      padding: EdgeInsets.only(bottom: 35.0),
-      child: TextField(
-        obscureText: isPasswordTextField ? showPassword : false,
-        decoration:InputDecoration(
-            suffixIcon: isPasswordTextField ? IconButton(
-              onPressed: (){
-                setState(() {
-                  showPassword = !showPassword;
-                });
-              },
-              icon: Icon(
-                Icons.remove_red_eye,
-                color: Colors.grey,
-              ),
-            ) : null,
-            contentPadding: EdgeInsets.only(bottom: 3),
-            labelText:  labelText,
-            floatingLabelBehavior: FloatingLabelBehavior.always,
-            hintText: placeholder,
-            hintStyle: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
-            )),
-      ),
-    );
-  }
 
   Future<void> _askedToLead() async {
     await showDialog(
@@ -216,6 +229,7 @@ class _ProfileState extends State<Profile> {
         }
     );
   }
+
 
   Future getImageFromCamera() async {
     var image = await ImagePicker().pickImage(source: ImageSource.camera);

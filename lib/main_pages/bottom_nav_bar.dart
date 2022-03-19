@@ -1,12 +1,8 @@
 import 'package:demo_cuticare/main_pages/profile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../resources.dart';
 import 'home.dart';
-
-void main() => runApp(MaterialApp(
-    home: BottomNavBar()
-));
-
 
 class BottomNavBar extends StatefulWidget {
 const BottomNavBar({Key? key}) : super(key: key);
@@ -20,22 +16,26 @@ class _BottomNavBarState extends State<BottomNavBar> {
 Widget build(BuildContext context) {
   return CupertinoTabScaffold(
     tabBar: CupertinoTabBar(
-      items: const <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          activeIcon: Icon(Icons.home_outlined),
-        ),
-        BottomNavigationBarItem(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
 
-          icon: Icon(Icons.group_rounded),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.location_on),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.person_sharp),
-        ),
-      ],
+            icon: Icon(Icons.home_outlined),
+            activeIcon: Icon(Icons.home),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.location_on_outlined),
+            activeIcon: Icon(Icons.location_on),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.assignment_outlined),
+            activeIcon: Icon(Icons.assignment),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person_outlined),
+            activeIcon: Icon(Icons.person),
+          ),
+        ],
+        activeColor: c
 
     ),
     tabBuilder: (context, index) {
@@ -49,7 +49,7 @@ Widget build(BuildContext context) {
         case 1:
           return CupertinoTabView(builder: (context) {
             return CupertinoPageScaffold(
-              child: Home(),
+              child: Text("1"),
             );
           });
         case 2:

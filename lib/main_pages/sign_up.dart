@@ -24,6 +24,7 @@ class _SignUpState extends State<SignUp> {
   final emailEditingController = TextEditingController();
   final passwordEditingController = TextEditingController();
   final confirmPasswordEditingController = TextEditingController();
+  final addressEditingController = TextEditingController();
 
   String? errorMessage;
 
@@ -39,17 +40,18 @@ class _SignUpState extends State<SignUp> {
         child: Form(
           key: _formKey,
           child: Container(
+            padding: EdgeInsets.only(
+                top: 20.0, left: 20.0, right: 20.0),
+            margin: EdgeInsets.only(top: 50),
             decoration:BoxDecoration(
               // image: DecorationImage(
               //     image: AssetImage('assets/backg.png'),
               //     fit: BoxFit.cover
               // ),
             ),
-            child :Center(
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(height: 20.0),
+                  // SizedBox(height: 80.0),
                   Text('Welcome  ',style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black, fontSize: 30.0),),
                   //SizedBox(height: 10.0),
                   //Image.asset("assets/google.jpg",height: 150,width:150 ,),
@@ -206,40 +208,59 @@ class _SignUpState extends State<SignUp> {
                   ),
 
                   SizedBox(height: 20.0),
-                  // Container(
-                  //   padding: EdgeInsets.symmetric(horizontal:20 ),
-                  //   margin: EdgeInsets.only(top: 10),
-                  //   child: TextFormField(
-                  //     decoration: InputDecoration(
-                  //       enabledBorder:OutlineInputBorder(
-                  //           borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                  //           borderSide:BorderSide(color: Colors.transparent)
-                  //       ),
-                  //       focusedBorder:OutlineInputBorder(
-                  //           borderRadius:BorderRadius.all(Radius.circular(20.0)),
-                  //           borderSide: BorderSide(color: Colors.blueGrey)
-                  //       ),
-                  //       prefixIcon: Icon(Icons.password),
-                  //       hintText: 'Gender ',
-                  //       fillColor:Colors.transparent,
-                  //       filled: true,
-                  //     ),
-                  //   ),
-                  // ),
-
                   Container(
+                    padding: EdgeInsets.symmetric(horizontal:20),
                     margin: EdgeInsets.only(top: 10),
-                    width: double.infinity,
-                    child:MaterialButton(
-                      onPressed: () { signUp(emailEditingController.text, passwordEditingController.text);},
-                      child: Text('   SIGN UP   ',
-                          style: TextStyle(color:Colors.white )),
+                    child: TextFormField(
+                      controller: addressEditingController,
+                        validator: (value) {
+                          SignUpValidator.validateAddress(value);
+                          return null;
+                        },
+                        onSaved: (value) {
+                          addressEditingController.text = value!;
+                        },
+                      textInputAction: TextInputAction.done,
+                      decoration: InputDecoration(
+                        enabledBorder:OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                            borderSide:BorderSide(color: Colors.transparent)
+                        ),
+                        focusedBorder:OutlineInputBorder(
+                            borderRadius:BorderRadius.all(Radius.circular(20.0)),
+                            borderSide: BorderSide(color: Colors.blueGrey)
+                        ),
+                        prefixIcon: Icon(Icons.location_on),
+                        hintText: ' Address ',
+                        fillColor:Colors.transparent,
+                        filled: true,
+                      ),
                     ),
-                    decoration: BoxDecoration( color: c , borderRadius: BorderRadius.circular(10.0)),
+                  ),
+
+                  Material(
+                    borderRadius: BorderRadius.circular(20.0),
+                    color: c,
+                    elevation: 7.0,
+                    child: MaterialButton(
+                      onPressed: (){
+                        signUp(emailEditingController.text, passwordEditingController.text);
+                      },
+                      child: Center(
+                        child: Text(
+                          "SIGN UP",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: "Roboto"
+                          ),
+                        ),
+                      ),
+                    ),
                   )
                 ],
               ),
-            ),
+
           ),
         ),
       ),

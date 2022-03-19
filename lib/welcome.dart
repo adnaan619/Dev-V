@@ -26,7 +26,7 @@ class _SplashScreenState extends State<SplashScreen>{
         fit: StackFit.expand,
         children: <Widget> [
           Container(
-            decoration: BoxDecoration(color: c),
+            decoration: BoxDecoration(color: Colors.white),
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -39,22 +39,22 @@ class _SplashScreenState extends State<SplashScreen>{
                   children: <Widget>[
                     Container(
                       padding: const EdgeInsets.all(20.0),
-                      width: 100,
-                      height: 100,
+                      width: 150,
+                      height: 150,
                       decoration: BoxDecoration(
                         // color: Colors.yellow,
                         image: DecorationImage(
                           fit: BoxFit.fitHeight,
-                          image: AssetImage('assets/applogo.png'),
+                          image: AssetImage('assets/logo.png'),
                         ),
                         borderRadius: BorderRadius.circular(20),
-                        boxShadow: const [
-                          BoxShadow(
-                            color: Colors.yellow,
-                            blurRadius: 6,
-                            offset: Offset(4, 8),
-                          ),
-                        ],
+                        // boxShadow: const [
+                        //   BoxShadow(
+                        //     color: Colors.yellow,
+                        //     blurRadius: 6,
+                        //     offset: Offset(4, 8),
+                        //   ),
+                        // ],
                       ),
                     ),
 
@@ -63,8 +63,8 @@ class _SplashScreenState extends State<SplashScreen>{
                       width: 270.0,
                       child: TextLiquidFill(
                         text: "\nCutiCare.",
-                        waveColor: Colors.white,
-                        boxBackgroundColor: c,
+                        waveColor: Colors.black,
+                        boxBackgroundColor: Colors.white,
                         textStyle: TextStyle(
                           //color: Colors.white,
                           fontSize: 50.0,
@@ -90,14 +90,14 @@ class _SplashScreenState extends State<SplashScreen>{
                     ),
                     Text("Your Personal \nSkin Care App.",
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.black,
                         fontSize: 22.0,
 
                       ),
                     ),
                     Text("\n+DevV Projects+",
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.black,
                         fontSize: 14.0,
                         fontWeight: FontWeight.bold,
                       ),

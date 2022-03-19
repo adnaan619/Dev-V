@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:demo_cuticare/main_pages/bottom_nav_bar.dart';
+import 'main_pages/app_settings.dart';
 
 void main() => runApp(MaterialApp(
   home: TermsAndConditions(),
@@ -155,9 +155,8 @@ class _TermsAndConditionsState extends State<TermsAndConditions>{
                           isAccepted: true,
                           title: "Back",
                           onTap: () {
-                            print("Clicked");
                             Navigator.of(context).push(MaterialPageRoute(
-                                builder: (BuildContext context) => BottomNavBar()));
+                                builder: (BuildContext context) => AppSettings()));
 
                           }
 

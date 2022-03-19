@@ -1,17 +1,19 @@
+import 'package:demo_cuticare/main_pages/profile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../resources.dart';
 import '../sign_in.dart';
+import '../t&c.dart';
 
-class Settings extends StatefulWidget {
-  const Settings({Key? key}) : super(key: key);
+class AppSettings extends StatefulWidget {
+  const AppSettings({Key? key}) : super(key: key);
 
 
   @override
-  _SettingsState createState() => _SettingsState();
+  _AppSettingsState createState() => _AppSettingsState();
 }
 
-class _SettingsState extends State<Settings> {
+class _AppSettingsState extends State<AppSettings> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,11 +22,13 @@ class _SettingsState extends State<Settings> {
         elevation: 1,
         leading: IconButton(
           onPressed: () {
-            Navigator.of(context).pop();
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Profile()),
+            );
           },
           icon: Icon(
             Icons.arrow_back,
-
             color: c,
 
           ),
@@ -74,7 +78,6 @@ class _SettingsState extends State<Settings> {
               children: [
                 Icon(
                   Icons.volume_up_outlined,
-
                   color: c,
 
                 ),
@@ -97,7 +100,6 @@ class _SettingsState extends State<Settings> {
             buildAccountOptionRow(context, "Contact us"),
             buildAccountOptionRow(context, "Terms & Conditions"),
             buildAccountOptionRow(context, "Privacy and security"),
-
             SizedBox(
               height: 50,
             ),
@@ -145,28 +147,9 @@ class _SettingsState extends State<Settings> {
   GestureDetector buildAccountOptionRow(BuildContext context, String title) {
     return GestureDetector(
       onTap: () {
-        showDialog(
-            context: context,
-            builder: (BuildContext context) {
-              return AlertDialog(
-                title: Text(title),
-                content: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: const [
-                    Text("Option 1"),
-                    Text("Option 2"),
-                    Text("Option 3"),
-                  ],
-                ),
-                actions: [
-                  TextButton(
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
-                      child: Text("Close")),
-                ],
-              );
-            });
+        Navigator.of(context, rootNavigator: true)
+            .pushReplacement(MaterialPageRoute(builder: (context) => TermsAndConditions()),
+        );
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 8.0),

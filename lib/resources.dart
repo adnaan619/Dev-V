@@ -49,4 +49,15 @@ class SignUpValidator {
     }
     return null;
   }
+
+  static String? validateAddress(String? address) {
+    RegExp regex = RegExp(r'^.{10,}$');
+    if (address!.isEmpty) {
+      return ("Address cannot be empty!");
+    }
+    if (!regex.hasMatch(address)) {
+      return ("Enter valid address! (Min. 10 characters)");
+    }
+    return null;
+  }
 }

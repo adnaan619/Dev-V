@@ -1,8 +1,11 @@
 import 'dart:io';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
+import '../sign_up_model/user_model.dart';
 import 'upload_image.dart';
 
 void main() {
@@ -20,7 +23,8 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   File? image;
-
+  User? user = FirebaseAuth.instance.currentUser;
+  UserModel loggedInUser = UserModel();
 
   Future pickImage(ImageSource source) async {
     try {
@@ -40,59 +44,82 @@ class _HomeState extends State<Home> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    FirebaseFirestore.instance
+        .collection("users")
+        .doc(user!.uid)
+        .get()
+        .then((value) {
+      this.loggedInUser = UserModel.fromMap(value.data());
+      setState(() {});
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
 
     return Scaffold(
-      body: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(height: 80.0),
-            Row(children:[
-              Container(
-                  width: 100.0,
-                  height: 100.0,
-                  decoration: BoxDecoration(
-                      color: Colors.red,
-                      image: DecorationImage(
-                          image: AssetImage("assets/avatar.png"),
-                          fit: BoxFit.cover),
-                      borderRadius: BorderRadius.all(Radius.circular(75.0)),
-                      boxShadow: const [
-                        BoxShadow(blurRadius: 7.0, color: Colors.black)
-                      ])
-              ),
-              SizedBox(width:30.0),
-              // Container(
-              //   child: Text("Rusini Thara Gunarathne"),
-              //
-              // ),
-            ]),
 
-            Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children:[
-                  SizedBox(height: 100.0),
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => ImageUpload()),
-                      );
-                    },
-                    child: Container(
-                      width: 250.0,
-                      height: 250.0,
+      body: Container(
+        decoration:BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage('assets/home_bg.png'),
+              fit: BoxFit.cover
+          ),
+        ),
+        child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(height: 50.0),
+              Row(children:[
+                Padding(
+                  padding: EdgeInsets.only(left: 10.0),
+                  child: Container(
+                      width: 100.0,
+                      height: 100.0,
                       decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage(
-                              'assets/upload_img.png'),
-                          fit: BoxFit.fill,
+                          color: Colors.red,
+                          image: DecorationImage(
+                              image: AssetImage("assets/avatar.png"),
+                              fit: BoxFit.cover),
+                          borderRadius: BorderRadius.all(Radius.circular(55.0)),
+                          boxShadow: const [
+                            BoxShadow(blurRadius: 7.0, color: Colors.black)
+                          ])
+                  ),
+                ),
+                SizedBox(width:30.0),
+                Text("${loggedInUser.firstName} ${loggedInUser.lastName}",
+                    style: TextStyle(fontSize:20,fontWeight: FontWeight.bold)),
+              ]),
+
+              Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children:[
+                    SizedBox(height: 100.0),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => ImageUpload()),
+                        );
+                      },
+                      child: Container(
+                        width: 250.0,
+                        height: 250.0,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage(
+                                'assets/upload_img.png'),
+                            fit: BoxFit.fill,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ]),
-          ]),
+                  ]),
+            ]),
+      ),
     );
   }
 }

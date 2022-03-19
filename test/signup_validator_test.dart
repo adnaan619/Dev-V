@@ -30,4 +30,12 @@ void main(){
     var result=FormValidator.validatePassword('123');
     expect(result, "Password must be at least 6 characters!");
   });
+  test('Empty address test',(){
+    var result=SignUpValidator.validateAddress('');
+    expect(result, "Address cannot be empty!");
+  });
+  test('Invalid address test',(){
+    var result=SignUpValidator.validateAddress('R2');
+    expect(result, "Enter valid address! (Min. 10 characters)");
+  });
 }

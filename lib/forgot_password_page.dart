@@ -67,7 +67,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                       ),
                     ),
                     Container(
-                      padding: EdgeInsets.fromLTRB(330.0, 120.0, 100.0, 0.0),
+                      padding: EdgeInsets.fromLTRB(15.0, 180.0, 0.0, 0.0),
                       child: Text("?",
                           style: TextStyle(
                               fontSize:70.0, fontWeight: FontWeight.bold, color: c)
