@@ -29,6 +29,7 @@ class MyApp extends StatelessWidget{
         )
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Location Page',
         theme: ThemeData(
           primarySwatch: Colors.blue,

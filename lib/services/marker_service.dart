@@ -4,7 +4,7 @@
 // class MarkerService{
 //
 //   List<Marker> getMarkers(List<Place> places) {
-//     var markers = List<Marker>();
+//     // var markers = List<Marker>();
 //
 //     places.forEach((place){
 //       Marker marker = Marker(
@@ -15,8 +15,8 @@
 //         position: LatLng(place.geometry.location.lat, place.geometry.location.lng)
 //       );
 //
-//       markers.add(marker);
+//       // markers.add(marker);
 //     });
-//   return markers;
+//   // return markers;
 //   }
 // }
