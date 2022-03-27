@@ -1,6 +1,9 @@
 import 'package:demo_cuticare/resources.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:provider/provider.dart';
+import 'forgot_password_page.dart';
+import 'google_sign_in_provider.dart';
 import 'main_pages/bottom_nav_bar.dart';
 import 'main_pages/sign_up.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -82,14 +85,7 @@ class _SignInState extends State<SignIn> {
                         controller: emailController,
                         keyboardType: TextInputType.emailAddress,
                         validator: (value) {
-                          if(value!.isEmpty){
-                            return("Please enter your email!");
-                          }
-                          // reg expression for email validation
-                          if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
-                              .hasMatch(value)) {
-                            return ("Please Enter a valid email!");
-                          }
+                          FormValidator.validateEmail(value);
                           return null;
                         },
                         onSaved: (value){
@@ -114,15 +110,8 @@ class _SignInState extends State<SignIn> {
                       TextFormField(
                         autofocus: false,
                         controller: passwordController,
-
                         validator: (value) {
-                          RegExp regex = RegExp(r'^.{6,}$');
-                          if (value!.isEmpty) {
-                            return ("Password is required for sign in");
-                          }
-                          if (!regex.hasMatch(value)) {
-                            return ("Enter Valid Password(Min. 6 Character)");
-                          }
+                          FormValidator.validatePassword(value);
                           return null;
                         },
                         onSaved: (value){
@@ -157,11 +146,12 @@ class _SignInState extends State<SignIn> {
                         alignment: Alignment(1.0, 0.0),
                         padding: EdgeInsets.only(top: 15.2, left: 20.0),
                         child: InkWell(
-                          // onTap:(){
-                          //   setState(() {
-                          //
-                          //   });
-                          // },
+                          onTap:(){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => ForgotPassword()),
+                            );
+                          },
                           child: Text("Forgot Password?",
                             style: TextStyle(
                               color: c,
@@ -208,13 +198,17 @@ class _SignInState extends State<SignIn> {
                               color: Colors.transparent,
                               borderRadius: BorderRadius.circular(20.0)
                           ),
-                          child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: const [
+                          child: MaterialButton(
+                              onPressed: () {
+                                final provider = Provider.of<GoogleSignInProvider>(context, listen: false);
+                                provider.googleLogin();
+                              },
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: const [
                                 Center(
-                                  child: ImageIcon(
-                                      AssetImage(
-                                          "assets/google-icon.png")),
+                                  child: ImageIcon(AssetImage(
+                                      "assets/google-icon.png")),
                                 ),
                                 SizedBox(width: 10.0),
                                 Center(
@@ -226,8 +220,10 @@ class _SignInState extends State<SignIn> {
                                     ),
                                   ),
                                 ),
-                                SizedBox(height: 10.0),
-                              ]),
+                                  SizedBox(height: 10.0),
+                                ]),
+                          ),
+
                         ),
                       ),
                       SizedBox(height: 10.0),
@@ -280,14 +276,12 @@ class _SignInState extends State<SignIn> {
                   )),
                   SizedBox(width: 5.0),
                   InkWell(
-
                     onTap: (){
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) =>   SignUp()),
                       );
                     },
-
                     child: Text("Register",
                       style: TextStyle(
                         color: c,
@@ -297,7 +291,6 @@ class _SignInState extends State<SignIn> {
                     ),
                   ),
                 ]),
-
           ]),
     );
   }
@@ -326,6 +319,3 @@ class _SignInState extends State<SignIn> {
     }
   }
 }
-
-
-
