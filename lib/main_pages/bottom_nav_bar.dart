@@ -18,7 +18,6 @@ Widget build(BuildContext context) {
     tabBar: CupertinoTabBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-
             icon: Icon(Icons.home_outlined),
             activeIcon: Icon(Icons.home),
           ),

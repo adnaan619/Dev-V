@@ -36,7 +36,6 @@ class _SignUpState extends State<SignUp> {
       //),
 
       body: SingleChildScrollView(
-
         child: Form(
           key: _formKey,
           child: Container(

@@ -91,7 +91,7 @@ class _HomeState extends State<Home> {
                 ),
                 SizedBox(width:30.0),
                 Text("${loggedInUser.firstName} ${loggedInUser.lastName}",
-                    style: TextStyle(fontSize:20,fontWeight: FontWeight.bold)),
+                    style: TextStyle(fontWeight: FontWeight.bold,fontSize:20)),
               ]),
 
               Column(

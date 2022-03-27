@@ -87,77 +87,81 @@ class _ProfileState extends State<Profile> {
                 ),
                 SizedBox(height: 15),
                 Center(
-                  child: Stack(
-                    children: [
-                      Container(
-                          width: 150.0,
-                          height: 150.0,
-                          decoration: BoxDecoration(
-                              color: Colors.red,
-                              image: DecorationImage(
-                                  image: NetworkImage(profilePicUrl),
-                                  fit: BoxFit.cover),
-                              borderRadius: BorderRadius.all(
-                                  Radius.circular(75.0)),
-                              boxShadow: const [
-                                BoxShadow(blurRadius: 7.0, color: Colors.black)
-                              ])
-                      ),
-                      SizedBox(height: 20.0),
-                      Positioned(
-                        bottom: 0,
-                        right: 0,
-                        child: Container(
-
-                          // padding: EdgeInsets.all(0.1),
-
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            border: Border.all(
-                              width: 4,
-                              color: Theme
-                                  .of(context)
-                                  .scaffoldBackgroundColor,
-                            ),
-
-                            color: c,
-
-                          ),
-                          child: IconButton(
-                            icon: Icon(Icons.edit),
-                            color: Colors.white,
-                            onPressed: () {
-                              _askedToLead();
-                            },
-                          ),
-
-                        ),
-                      )
-
-                    ],
-                  ),
+                  child: profileImage()
                 ),
                 SizedBox(
                   height: 35,
                 ),
                 Text("Full name", style: TextStyle(fontSize:25,fontWeight: FontWeight.bold)),
                 SizedBox(height:5),
-                Text("${loggedInUser.firstName} ${loggedInUser.lastName}",
-                    style: TextStyle(fontSize:15,fontWeight: FontWeight.bold)),
+                Row(
+                    children: <Widget>[
+                      // ...
+                      Expanded(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text("${loggedInUser.firstName} ${loggedInUser.lastName}",
+                                style: TextStyle(fontSize:15,fontWeight: FontWeight.bold)),
+                            Divider(color: Colors.black,
+                                height: 25,
+                                thickness: 1,
+                                endIndent: 10)
+                          ],
+                        ),
+                      ),
+                    ]),
+
 
                 SizedBox(height:15),
 
                 Text("E-mail", style: TextStyle(fontSize:25,fontWeight: FontWeight.bold)),
                 SizedBox(height:5),
-                Text("${loggedInUser.email}",
-                    style: TextStyle(fontSize:15,fontWeight: FontWeight.bold)),
+
+                Row(
+                    children: <Widget>[
+                      // ...
+                      Expanded(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text("${loggedInUser.email}",
+                                style: TextStyle(fontSize:15,fontWeight: FontWeight.bold)),
+                            Divider(color: Colors.black,
+                                height: 25,
+                                thickness: 1,
+                                endIndent: 10)
+                          ],
+                        ),
+                      ),
+                    ]),
 
                 SizedBox(height:15),
 
                 Text("Address", style: TextStyle(fontSize:25,fontWeight: FontWeight.bold)),
                 SizedBox(height:5),
-                Text("${loggedInUser.address}",
-                    style: TextStyle(fontSize:15,fontWeight: FontWeight.bold)),
+
+              Row(
+                children: <Widget>[
+                // ...
+                Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                      Text("${loggedInUser.address}",
+                        style: TextStyle(fontSize:15,fontWeight: FontWeight.bold)),
+                      Divider(color: Colors.black,
+                          height: 25,
+                          thickness: 1,
+                          endIndent: 10)
+                    ],
+                  ),
+                ),
+            ]),
+
                 SizedBox(height: 35),
 
                 Row(
@@ -230,6 +234,51 @@ class _ProfileState extends State<Profile> {
     );
   }
 
+  Widget profileImage(){
+    return Stack(
+      children: [
+        Container(
+            width: 150.0,
+            height: 150.0,
+            decoration: BoxDecoration(
+                color: Colors.red,
+                image: DecorationImage(
+                    image: NetworkImage(profilePicUrl),
+                    fit: BoxFit.cover),
+                borderRadius: BorderRadius.all(
+                    Radius.circular(75.0)),
+                boxShadow: const [
+                  BoxShadow(blurRadius: 7.0, color: Colors.black)
+                ])
+        ),
+        SizedBox(height: 20.0),
+        Positioned(
+          bottom: 0,
+          right: 0,
+          child: Container(
+            // padding: EdgeInsets.all(0.1),
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              border: Border.all(
+                width: 4,
+                color: Theme
+                    .of(context)
+                    .scaffoldBackgroundColor,
+              ),
+              color: c,
+            ),
+            child: IconButton(
+              icon: Icon(Icons.edit),
+              color: Colors.white,
+              onPressed: () {
+                _askedToLead();
+              },
+            ),
+          ),
+        )
+      ],
+    );
+  }
 
   Future getImageFromCamera() async {
     var image = await ImagePicker().pickImage(source: ImageSource.camera);

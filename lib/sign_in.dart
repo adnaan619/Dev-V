@@ -182,8 +182,29 @@ class _SignInState extends State<SignIn> {
                           ),
                         ),
                       ),
+                      Column(children: <Widget>[
 
-                      SizedBox(height: 20.0),
+                        Row(children: <Widget>[
+                          Expanded(
+                            child: Container(
+                                margin: const EdgeInsets.only(left: 10.0, right: 20.0),
+                                child: Divider(
+                                  color: Colors.black,
+                                  height: 36,
+                                )),
+                          ),
+                          Text("OR"),
+                          Expanded(
+                            child: Container(
+                                margin: const EdgeInsets.only(left: 20.0, right: 10.0),
+                                child: Divider(
+                                  color: Colors.black,
+                                  height: 36,
+                                )),
+                          ),
+                        ]),
+
+                      ]),
 
                       Container(
                         height: 50.0,
