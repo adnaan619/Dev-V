@@ -44,12 +44,21 @@ dependencies:
   firebase_core: ^1.12.0
   file_picker: ^4.3.3
   animated_text_kit: ^4.2.1
+  google_maps_flutter: ^2.1.1
+  firebase_auth: ^3.3.7
+  cloud_firestore: ^3.1.8
+  fluttertoast: ^8.0.8
+  geolocator: ^5.3.0
+  provider: ^4.0.4
+  url_launcher: ^6.0.20
+  http: ^0.13.4
+  flutter_rating_bar: ^3.0.1+1
   firebase_auth: ^3.3.7
   cloud_firestore: ^3.1.8
   fluttertoast: ^8.0.8
   provider: ^6.0.2
   google_sign_in: ^5.2.4
-  shared_preferences: ^2.0.13
+
 
 dev_dependencies:
   flutter_test:
