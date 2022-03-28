@@ -1,0 +1,12 @@
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:demo_cuticare/data/products.dart';
+import 'package:demo_cuticare/model/cart_item.dart';
+import 'package:demo_cuticare/page/cart_page.dart';
+import 'package:demo_cuticare/provider/shop_provider.dart';
+import 'package:demo_cuticare/widget/cart_header_widget.dart';
+import 'package:sliding_up_panel/sliding_up_panel.dart';
+import '../main.dart';
+import 'package:demo_cuticare/data/tags.dart';
+import 'package:demo_cuticare/transitions/custom_page_route.dart';
+import 'package:demo_cuticare/page/product_page.dart';
