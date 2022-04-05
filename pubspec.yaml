@@ -54,6 +54,10 @@ dependencies:
   flutter_rating_bar: ^3.0.1+1
   provider: ^6.0.2
   google_sign_in: ^5.2.4
+  shared_preferences: ^2.0.13
+  sliding_up_panel: ^2.0.0+1
+
+
 
 
 dev_dependencies:
