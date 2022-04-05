@@ -21,10 +21,10 @@ class _ProductsPageState extends State<ProductsPage> {
   Widget build(BuildContext context) => Scaffold(
     backgroundColor: Color(0xFFf6f5ee),
     appBar: AppBar(
-      title: Text(
-        MyApp.title,
-        style: TextStyle(color: Colors.black),
-      ),
+      // title: Text(
+      //   MyApp.title,
+      //   style: TextStyle(color: Colors.black),
+      // ),
       centerTitle: true,
       backgroundColor: Colors.transparent,
       elevation: 0,

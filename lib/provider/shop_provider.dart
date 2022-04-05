@@ -3,7 +3,7 @@ import 'package:demo_cuticare/model/cart_item.dart';
 
 class ShopProvider with ChangeNotifier {
   var _tag;
-  Map<String, CartItem> _items;
+  Map<String, CartItem> _items = {};
 
   String get tag => _tag;
 
