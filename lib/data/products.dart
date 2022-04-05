@@ -3,11 +3,11 @@ import 'package:demo_cuticare/model/cart_item.dart';
 List<CartItem> products = [
   CartItem(
     id: '1',
-    title: 'Monster Energy Drink ',
+    title: 'Monster Energy Drink',
     description:
     'Monster Energy is an energy drink that was introduced by Hansen Natural Company in April of 2002. Monster Energy has a 35% share of the energy drink market, the second highest share after Red Bull.',
     price: 30,
-    imgUrl: 'assets/monster.png',
+    imgUrl: 'assets/evelom.png',
     quantity: 1,
     content: '250ml',
   ),
