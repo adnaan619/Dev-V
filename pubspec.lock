@@ -28,6 +28,7 @@ packages:
       name: archive
       url: "https://pub.dartlang.org"
     source: hosted
+
     version: "3.1.6"
   args:
     dependency: transitive
@@ -36,6 +37,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.3.0"
+
   async:
     dependency: transitive
     description:
@@ -609,7 +611,23 @@ packages:
       name: source_maps
       url: "https://pub.dartlang.org"
     source: hosted
+<<<<<<< HEAD
     version: "0.10.10"
+=======
+    version: "2.1.0"
+  sky_engine:
+    dependency: transitive
+    description: flutter
+    source: sdk
+    version: "0.0.99"
+  sliding_up_panel:
+    dependency: "direct main"
+    description:
+      name: sliding_up_panel
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.0+1"
+>>>>>>> origin
   source_span:
     dependency: transitive
     description:
@@ -779,6 +797,8 @@ packages:
     source: hosted
     version: "2.1.0"
   webdriver:
+    version: "2.5.0"
+  xdg_directories:
     dependency: transitive
     description:
       name: webdriver
