@@ -26,7 +26,7 @@ class ShopProvider with ChangeNotifier {
       ),
       '2': CartItem(
         id: '2',
-        title: 'Mountain Dew',
+        title: 'Amare Vita',
         description:
         'Premium quality ingredients with no harsh chemicals, no parabens, and no artificial colors or fragrances. Vegan & Cruelty-Free.',
         price: 28,
