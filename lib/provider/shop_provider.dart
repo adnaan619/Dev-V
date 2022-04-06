@@ -16,11 +16,11 @@ class ShopProvider with ChangeNotifier {
     _items = {
       '1': CartItem(
         id: '1',
-        title: 'Monster Energy Drink ',
+        title: 'Camomile Cologne',
         description:
-        'Monster Energy is an energy drink that was introduced by Hansen Natural Company in April of 2002. Monster Energy has a 35% share of the energy drink market, the second highest share after Red Bull.',
-        price: 30,
-        imgUrl: 'assets/monster.png',
+        'Want to relieve itchy, dry skin? This nourishing body lotion with chamomile can help. Clinically proven to be just as gentle on sensitive skin as fragrance-free products, its unique formula contains Triple Oat Complex for smooth skin and 24 hour moisturization',
+        price: 50,
+        imgUrl: 'assets/camomile.jpg',
         quantity: 1,
         content: '250ml',
       ),
@@ -28,11 +28,11 @@ class ShopProvider with ChangeNotifier {
         id: '2',
         title: 'Mountain Dew',
         description:
-        'Mountain Dew is a carbonated soft drink brand produced and owned by PepsiCo. The original formula was invented in 1940 by Tennessee beverage bottlers Barney and Ally Hartman. A revised formula was created by Bill Bridgforth in 1958.',
-        price: 15,
-        imgUrl: 'assets/mountdew.png',
-        quantity: 2,
-        content: '300ml',
+        'Premium quality ingredients with no harsh chemicals, no parabens, and no artificial colors or fragrances. Vegan & Cruelty-Free.',
+        price: 28,
+        imgUrl: 'assets/amare.jpg',
+        quantity: 1,
+        content: '50ml',
       ),
     };
   }
