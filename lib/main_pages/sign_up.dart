@@ -31,10 +31,6 @@ class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //appBar: AppBar(
-      //title: Text('Login Page '),
-      //),
-
       body: SingleChildScrollView(
         child: Form(
           key: _formKey,
@@ -51,12 +47,11 @@ class _SignUpState extends State<SignUp> {
               child: Column(
                 children: [
                   // SizedBox(height: 80.0),
-                  Text('Welcome  ',style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black, fontSize: 30.0),),
+                  Text('Welcome to CutiCare! ',style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black, fontSize: 30.0),),
                   //SizedBox(height: 10.0),
                   //Image.asset("assets/google.jpg",height: 150,width:150 ,),
                   SizedBox(height: 10.0),
-                  Text('Please enter your details ',textAlign:TextAlign.left ,style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black , fontSize: 20.0),),
-
+                  Text('Create an account',textAlign:TextAlign.left ,style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black , fontSize: 20.0),),
                   Container(
                     padding: EdgeInsets.symmetric(horizontal:20),
                     margin: EdgeInsets.only(top: 10),
@@ -69,9 +64,11 @@ class _SignUpState extends State<SignUp> {
                       textInputAction: TextInputAction.next,
                       decoration: InputDecoration(
                         enabledBorder:OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(10.0)),
                             borderSide:BorderSide(color: Colors.transparent)
                         ),
                         focusedBorder:OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(20.0)),
                             borderSide: BorderSide(color: Colors.blueGrey)
                         ),
                         prefixIcon: Icon(Icons.subject),
@@ -81,7 +78,9 @@ class _SignUpState extends State<SignUp> {
                       ),
                     ),
                   ),
+
                   SizedBox(height: 20.0),
+
                   Container(
                     padding: EdgeInsets.symmetric(horizontal:20 ),
                     margin: EdgeInsets.only(top: 10),
@@ -142,6 +141,7 @@ class _SignUpState extends State<SignUp> {
                   ),
 
                   SizedBox(height: 20.0),
+
                   Container(
                     padding: EdgeInsets.symmetric(horizontal:20 ),
                     margin: EdgeInsets.only(top: 10),
@@ -171,6 +171,7 @@ class _SignUpState extends State<SignUp> {
                       ),
                     ),
                   ),
+
                   SizedBox(height: 20.0),
 
                   Container(
@@ -207,6 +208,7 @@ class _SignUpState extends State<SignUp> {
                   ),
 
                   SizedBox(height: 20.0),
+
                   Container(
                     padding: EdgeInsets.symmetric(horizontal:20),
                     margin: EdgeInsets.only(top: 10),
@@ -237,6 +239,8 @@ class _SignUpState extends State<SignUp> {
                     ),
                   ),
 
+                  SizedBox(height: 20.0),
+
                   Material(
                     borderRadius: BorderRadius.circular(20.0),
                     color: c,
@@ -256,11 +260,12 @@ class _SignUpState extends State<SignUp> {
                         ),
                       ),
                     ),
-                  )
+                  ),
+                  SizedBox(height: 20.0),
                 ],
               ),
-
           ),
+
         ),
       ),
     );

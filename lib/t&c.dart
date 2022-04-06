@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
-import 'main_pages/app_settings.dart';
-
-void main() => runApp(MaterialApp(
-  home: TermsAndConditions(),
-  debugShowCheckedModeBanner: false,
-));
+import 'main_pages/bottom_nav_bar.dart';
 
 class TermsAndConditions extends StatefulWidget{
   const TermsAndConditions({Key? key}) : super(key: key);
@@ -156,10 +151,8 @@ class _TermsAndConditionsState extends State<TermsAndConditions>{
                           title: "Back",
                           onTap: () {
                             Navigator.of(context).push(MaterialPageRoute(
-                                builder: (BuildContext context) => AppSettings()));
-
+                                builder: (BuildContext context) => BottomNavBar()));
                           }
-
                       ),
                     ),
                   ],

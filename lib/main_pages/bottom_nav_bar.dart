@@ -1,3 +1,4 @@
+import 'package:demo_cuticare/location.dart';
 import 'package:demo_cuticare/main_pages/profile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +13,7 @@ const BottomNavBar({Key? key}) : super(key: key);
 }
 
 class _BottomNavBarState extends State<BottomNavBar> {
+
 @override
 Widget build(BuildContext context) {
   return CupertinoTabScaffold(
@@ -26,8 +28,8 @@ Widget build(BuildContext context) {
             activeIcon: Icon(Icons.location_on),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.assignment_outlined),
-            activeIcon: Icon(Icons.assignment),
+            icon: Icon(Icons.shopping_cart_outlined ),
+            activeIcon: Icon(Icons.shopping_cart_rounded),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person_outlined),
@@ -35,7 +37,6 @@ Widget build(BuildContext context) {
           ),
         ],
         activeColor: c
-
     ),
     tabBuilder: (context, index) {
       switch (index) {
@@ -48,7 +49,7 @@ Widget build(BuildContext context) {
         case 1:
           return CupertinoTabView(builder: (context) {
             return CupertinoPageScaffold(
-              child: Text("1"),
+              child: Location(),
             );
           });
         case 2:
@@ -65,8 +66,8 @@ Widget build(BuildContext context) {
           });
         default:
           return CupertinoTabView(builder: (context) {
-          return CupertinoPageScaffold(
-            child: Home(),
+            return CupertinoPageScaffold(
+              child: Profile(),
           );
         });
       }

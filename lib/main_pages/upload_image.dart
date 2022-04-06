@@ -48,7 +48,7 @@ class _State extends State<ImageUpload> {
   Future classifyImage() async {
     output = null;
     await Tflite.loadModel(
-        model: "assets/skin_quant.tflite", labels: "assets/labels.txt");
+        model: "assets/skin_quant_model.tflite", labels: "assets/labels.txt");
     var result = await Tflite.runModelOnImage(
       path: path, // image path
       numResults: 4,    // number of classes
@@ -135,7 +135,7 @@ class _State extends State<ImageUpload> {
                       padding: EdgeInsets.fromLTRB(12, 12, 12, 12),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
-                      )
+                      ),
                   )
               ),
               SizedBox(height: 10),

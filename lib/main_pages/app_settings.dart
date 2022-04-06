@@ -98,7 +98,7 @@ class _AppSettingsState extends State<AppSettings> {
               height: 10,
             ),
             buildAccountOptionRow(context, "Contact us"),
-            buildAccountOptionRow(context, "Terms & Conditions"),
+            buildAccountOptionRow1(context, "Terms & Conditions"),
             buildAccountOptionRow(context, "Privacy and security"),
             SizedBox(
               height: 50,
@@ -145,6 +145,36 @@ class _AppSettingsState extends State<AppSettings> {
   }
 
   GestureDetector buildAccountOptionRow(BuildContext context, String title) {
+    return GestureDetector(
+      // onTap: () {
+      //   Navigator.of(context, rootNavigator: true)
+      //       .pushReplacement(MaterialPageRoute(builder: (context) => TermsAndConditions()),
+      //   );
+      // },
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 8.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              title,
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w500,
+                color: Colors.grey[600],
+              ),
+            ),
+            Icon(
+              Icons.arrow_forward_ios,
+              color: Colors.grey,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  GestureDetector buildAccountOptionRow1(BuildContext context, String title) {
     return GestureDetector(
       onTap: () {
         Navigator.of(context, rootNavigator: true)

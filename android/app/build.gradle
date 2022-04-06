@@ -48,7 +48,7 @@ android {
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.example.demo_cuticare"
-        minSdkVersion 19
+        minSdkVersion 20
         targetSdkVersion 31
 
         multiDexEnabled true

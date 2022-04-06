@@ -8,12 +8,6 @@ import 'package:image_picker/image_picker.dart';
 import '../sign_up_model/user_model.dart';
 import 'upload_image.dart';
 
-void main() {
-  runApp(MaterialApp(
-      home: Home()
-  ));
-}
-
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
 
@@ -51,7 +45,7 @@ class _HomeState extends State<Home> {
         .doc(user!.uid)
         .get()
         .then((value) {
-      this.loggedInUser = UserModel.fromMap(value.data());
+      loggedInUser = UserModel.fromMap(value.data());
       setState(() {});
     });
   }

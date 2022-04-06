@@ -243,10 +243,9 @@ class _ProfileState extends State<Profile> {
             decoration: BoxDecoration(
                 color: Colors.red,
                 image: DecorationImage(
-                    image: NetworkImage(profilePicUrl),
+                    image: AssetImage("assets/avatar.png"),
                     fit: BoxFit.cover),
-                borderRadius: BorderRadius.all(
-                    Radius.circular(75.0)),
+                borderRadius: BorderRadius.all(Radius.circular(100.0)),
                 boxShadow: const [
                   BoxShadow(blurRadius: 7.0, color: Colors.black)
                 ])

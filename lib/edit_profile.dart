@@ -19,7 +19,7 @@ class _EditProfileState extends State<EditProfile> {
   User? user = FirebaseAuth.instance.currentUser;
   UserModel loggedInUser = UserModel();
   bool showPassword = false;
-  var profilePicUrl = "https://drive.google.com/file/d/1YSs58WxxIMqAYjQEKlJQi5VFwAT0mUOO/view?usp=sharing";
+  var profilePicUrl = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fpixabay.com%2Fimages%2Fsearch%2Favatar%2F&psig=AOvVaw1zh6TZQ3Qod_k9WQFeW5rq&ust=1648858939897000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCLj7i63M8fYCFQAAAAAdAAAAABAD";
   File? imageURI;
   List? output;
   late String path;
@@ -142,7 +142,6 @@ class _EditProfileState extends State<EditProfile> {
       imageURI = File(image.path);
       path = image.path;
       output = null;
-
     });
   }
 

@@ -18,6 +18,8 @@
 //   }
 // }
 // class GettingStartedScreen extends StatefulWidget{
+//   const GettingStartedScreen({Key? key}) : super(key: key);
+//
 //   @override
 //   _GettingStartedScreenState createState() => _GettingStartedScreenState();
 // }
@@ -127,7 +129,7 @@
 //                   ),
 //                   Row(
 //                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                     children: <Widget> [
+//                     children: const <Widget> [
 //                       Text(
 //                         'Back',
 //                         style: TextStyle(
