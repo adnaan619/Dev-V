@@ -6,7 +6,6 @@ import 'package:demo_cuticare/page/cart_page.dart';
 import 'package:demo_cuticare/provider/shop_provider.dart';
 import 'package:demo_cuticare/widget/cart_header_widget.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
-import '../main.dart';
 import 'package:demo_cuticare/data/tags.dart';
 import 'package:demo_cuticare/transitions/custom_page_route.dart';
 import 'package:demo_cuticare/page/product_page.dart';
@@ -37,13 +36,13 @@ class _ProductsPageState extends State<ProductsPage> {
           icon: Icon(Icons.filter_list, color: Colors.black),
           onPressed: () {},
         ),
-        const SizedBox(width: 4),
+        SizedBox(width: 4),
       ],
     ),
     body: SlidingUpPanel(
       parallaxEnabled: true,
       parallaxOffset: 1,
-      minHeight: 70,
+      minHeight: 160,
       body: Container(
         margin: EdgeInsets.only(bottom: 150),
         child: Stack(
@@ -56,7 +55,7 @@ class _ProductsPageState extends State<ProductsPage> {
               child: ClipPath(
                 clipper: MyCustomClipper(),
                 child: Container(
-                  height: 50,
+                  height: 80,
                   width: double.infinity,
                   color: Colors.black,
                 ),

@@ -2,6 +2,9 @@ import 'package:demo_cuticare/location.dart';
 import 'package:demo_cuticare/main_pages/profile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../main_product_page.dart';
+import '../page/product_page.dart';
+import '../page/products_page.dart';
 import '../resources.dart';
 import 'home.dart';
 
@@ -55,7 +58,7 @@ Widget build(BuildContext context) {
         case 2:
           return CupertinoTabView(builder: (context) {
             return CupertinoPageScaffold(
-              child: Text("1"),
+              child: MainProductsPage(),
             );
           });
         case 3:

@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:demo_cuticare/page/cart_page.dart';
 import 'package:provider/provider.dart';
 import 'package:demo_cuticare/provider/shop_provider.dart';
 import 'package:demo_cuticare/page/products_page.dart';
 
-void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget{
+class MainProductsPage extends StatelessWidget{
   static final String title = 'Shop UI';
   final state = ShopProvider();
 

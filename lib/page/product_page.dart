@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:demo_cuticare/data/tags.dart';
-import 'package:demo_cuticare/model/cart_item.dart';
 import 'package:demo_cuticare/provider/shop_provider.dart';
-import 'package:demo_cuticare/page/products_page.dart';
-
 
 class ProductPage extends StatelessWidget {
   final product;

@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import '../demo_page.dart';
 import '../resources.dart';
 import '../sign_up_model/user_model.dart';
 import 'bottom_nav_bar.dart';
@@ -330,7 +331,7 @@ class _SignUpState extends State<SignUp> {
     await firebaseFirestore.collection("users").doc(user.uid).set(userModel.toMap());
     Fluttertoast.showToast(msg: "Account created successfully :) ");
 
-    Navigator.pushAndRemoveUntil((context), MaterialPageRoute(builder: (context) => BottomNavBar()), (route) => false);
+    Navigator.pushAndRemoveUntil((context), MaterialPageRoute(builder: (context) => DemoPage()), (route) => false);
   }
 
 }
