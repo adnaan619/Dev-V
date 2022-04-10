@@ -6,7 +6,6 @@ import 'package:fluttertoast/fluttertoast.dart';
 import '../demo_page.dart';
 import '../resources.dart';
 import '../sign_up_model/user_model.dart';
-import 'bottom_nav_bar.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp ({Key? key}) : super(key: key);
@@ -39,12 +38,6 @@ class _SignUpState extends State<SignUp> {
             padding: EdgeInsets.only(
                 top: 20.0, left: 20.0, right: 20.0),
             margin: EdgeInsets.only(top: 50),
-            decoration:BoxDecoration(
-              // image: DecorationImage(
-              //     image: AssetImage('assets/backg.png'),
-              //     fit: BoxFit.cover
-              // ),
-            ),
               child: Column(
                 children: [
                   // SizedBox(height: 80.0),

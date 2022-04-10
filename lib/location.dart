@@ -8,6 +8,10 @@ import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 
+// void main(){
+//   runApp(Location());
+// }
+
 class Location extends StatelessWidget{
   final locatorService = GeoLocatorService();
   final placesService = PlacesService();

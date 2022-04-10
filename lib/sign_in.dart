@@ -26,9 +26,6 @@ class _SignInState extends State<SignIn> {
   // firebase
   final _auth = FirebaseAuth.instance;
 
-  // string for displaying the error Message
-  // String? errorMessage;
-
   @override
   Widget build(BuildContext context) {
 
