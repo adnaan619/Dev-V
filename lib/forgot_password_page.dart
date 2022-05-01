@@ -127,13 +127,13 @@ class _ForgotPasswordState extends State<ForgotPassword> {
           .sendPasswordResetEmail(email: emailController.text.trim());
 
       snackbarKey.currentState?.showSnackBar(SnackBar(content: Text("Password Reset Email Sent!")));
-      Navigator.of(context).popUntil((route) => route.isFirst);
+      Navigator.pushAndRemoveUntil((context), MaterialPageRoute(builder: (context) => SignIn()), (route) => false);
     } on FirebaseException catch (e){
       if (kDebugMode) {
         print(e);
       }
       snackbarKey.currentState?.showSnackBar(SnackBar(content: Text((e.message).toString())));
-      Navigator.of(context).pop();
+      Navigator.pushAndRemoveUntil((context), MaterialPageRoute(builder: (context) => SignIn()), (route) => false);
     }
   }
 }

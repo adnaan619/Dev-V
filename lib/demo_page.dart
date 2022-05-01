@@ -1,8 +1,8 @@
+import 'package:demo_cuticare/resources.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 
 import 'main_pages/bottom_nav_bar.dart';
-import 'main_pages/home.dart';
 
 class DemoPage extends StatelessWidget{
 
@@ -119,7 +119,7 @@ class _GettingStartedScreenState extends State<GettingStartedScreen>{
                       borderRadius: BorderRadius.circular(10),
                     ),
                     padding: const EdgeInsets.all(10),
-                    color: Theme.of(context).primaryColor,
+                    color: c,
                     textColor: Colors.white,
                     onPressed: () {
                       Navigator.push(
